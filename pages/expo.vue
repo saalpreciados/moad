@@ -5,12 +5,12 @@
     </div>
     <div class="expo-nav">
       <a class="expo-nav-progress" :style="progressBarLength" href="/" />
-      <div class="expo-nav-prev" @click="prevSlide()">
+      <button class="expo-nav-prev button" @click="prevSlide()">
         ←
-      </div>
-      <div class="expo-nav-next" @click="nextSlide()">
+      </button>
+      <button class="expo-nav-next button" @click="nextSlide()">
         →
-      </div>
+      </button>
     </div>
   </div>
 </template>
