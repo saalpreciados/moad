@@ -13,5 +13,12 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-  }
+    
+  },
+  "overrides": [
+    {
+      "files": ["bin/*.js", "lib/*.js"],
+      "excludedFiles": "assets/logo.vue"
+    }
+  ]
 }

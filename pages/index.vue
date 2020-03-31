@@ -1,24 +1,31 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
+  <div>
+    <div class="container">
       <h1 class="title">
-        moad
+        Exposicions
       </h1>
-      <h2 class="subtitle">
-        museu online d&#39;art digital
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">
-          GitHub</a>
-      </div>
+    </div>
+    <div class="expositions">
+      <expo-link />
     </div>
   </div>
 </template>
 
 <script>
+import expositions from '../assets/expositions.js'
+import ExpoLink from '../components/ExpoLink'
 
+export default {
+  components: {
+    ExpoLink
+  },
+
+  data () {
+    return {
+      expositions
+    }
+  }
+}
 </script>
 
 <style>
