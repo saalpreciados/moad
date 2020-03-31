@@ -1,18 +1,28 @@
 <template>
   <div class="expo">
-    <a class="expo-link container" href="#">
-      <img src="../assets/art/motocross-saito/untitled-1.png" alt="Untitled 1">
-      <div class="expo-link-hall">Sala 1</div>
-      <h2 class="expo-link-title">Nom de l'exposició</h2>
-      <p class="expo-link-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+    <a class="expo-link container" :href="exposition.url">
+      <img :src="exposition.img" alt="Untitled 1">
+      <div class="expo-link-hall">Sala {{ number }}</div>
+      <h2 class="expo-link-title">{{ exposition.title }}</h2>
+      <p class="expo-link-description">{{ exposition.description }}</p>
     </a>
-    <span class="expo-number">01</span>
+    <span :class="['expo-number', number % 2 === 0 ? 'expo-number-right' : 'expo-number-left']">0{{ number }}</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ExpoLink'
+  name: 'ExpoLink',
+  props: {
+    exposition: {
+      type: Object,
+      default: null
+    },
+    number: {
+      type: Number,
+      default: 0
+    }
+  }
 }
 </script>
 
@@ -64,29 +74,43 @@ export default {
   overflow: hidden;
 
   &-number {
+    pointer-events: none;
     display: block;
     opacity: .95;
     position: absolute;
     font-family: soulcraft;
     mix-blend-mode: multiply;
     bottom: 5rem;
-    left: 12rem;
     z-index: 10;
     color: $primary;
     font-size: 22rem;
     font-weight: bold;
     transform: rotate(-90deg);
+    &-left {
+      left: 12rem;
+    }
+
+    &-right {
+      right: 12rem;
+    }
   }
 }
 
 @include media-breakpoint-down(md) {
   .expo {
     &-number {
-      bottom: 15rem;
-      right: -15rem;
+      bottom: 18rem;
       font-size: 15rem;
+    &-left, &-right {
+      left: 0;
+      right: -22rem;
+    }
+  }
+  &-link {
+      img {
+        height: 375px;
+      }
     }
   }
 }
-
 </style>

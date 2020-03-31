@@ -6,7 +6,7 @@
       </h1>
     </div>
     <div class="expositions">
-      <expo-link />
+      <expo-link v-for="(exposition, i) in expositions" :key="i" :exposition="exposition" :number="i + 1" />
     </div>
   </div>
 </template>
