@@ -1,13 +1,18 @@
 <template>
   <div>
     <div class="expo-wrapper">
-      <expo-item :image="expo1[currentImage].img" :title="expo1[currentImage].title" :author="expo1[currentImage].author" />
+      <transition name="fade" mode="out-in">
+        <template v-for="(expo, i) in expo1">
+          <expo-slide v-if="i == currentSlide" :key="i" :slide="expo1[currentSlide]" />
+        </template>
+      </transition>
     </div>
     <div class="expo-nav">
       <a class="expo-nav-progress" :style="progressBarLength" href="/" />
       <button class="expo-nav-prev button" @click="prevSlide()">
         ←
       </button>
+      <a class="expo-nav-map d-lg-none d-xl-none" href="/"> Mapa </a>
       <button class="expo-nav-next button" @click="nextSlide()">
         →
       </button>
@@ -17,32 +22,32 @@
 
 <script>
 import expo1 from '../assets/expo1.js'
-import ExpoItem from '../components/ExpoItem'
+import ExpoSlide from '../components/ExpoSlide'
 
 export default {
   components: {
-    ExpoItem
+    ExpoSlide
   },
   data () {
     return {
-      currentImage: 0,
+      currentSlide: 0,
       expo1
     }
   },
   computed: {
     progressBarLength () {
-      return 'width:' + ((this.currentImage + 1) / this.expo1.length) * 100 + '%'
+      return 'width:' + ((this.currentSlide + 1) / this.expo1.length) * 100 + '%'
     }
   },
   methods: {
     nextSlide () {
-      if (this.expo1.length > (this.currentImage + 1)) {
-        this.currentImage = this.currentImage + 1
+      if (this.expo1.length > (this.currentSlide + 1)) {
+        this.currentSlide = this.currentSlide + 1
       }
     },
     prevSlide () {
-      if ((this.currentImage - 1) >= 0) {
-        this.currentImage = this.currentImage - 1
+      if ((this.currentSlide - 1) >= 0) {
+        this.currentSlide = this.currentSlide - 1
       }
     }
   }
@@ -51,6 +56,15 @@ export default {
 
 <style lang="scss" scoped>
 @import '../sass/variables';
+
+.fade-enter-active, .fade-leave-active {
+  transition: .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
 .expo-wrapper {
   display: grid;
   height: 92vh;
@@ -96,19 +110,22 @@ export default {
 }
 
 @include media-breakpoint-down(md) {
-.expo-wrapper {
-  display: block;
-  height: 92vh;
-  margin: 0;
-}
+  .expo-wrapper {
+    display: block;
+    height: 92vh;
+    margin: 0;
+  }
 
-.expo-nav {
+  .expo-nav {
     position: fixed;
     bottom: 0;
     background-color: $light;
     z-index: 100;
     height: 4rem;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &-next, &-prev {
       bottom: 0;

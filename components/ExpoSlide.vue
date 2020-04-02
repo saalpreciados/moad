@@ -1,14 +1,14 @@
 <template>
   <div class="expo-page">
     <div class="expo-page-art">
-      <img :src="image" alt="Untitled 1">
+      <img :src="slide.img" alt="Untitled 1">
     </div>
     <div class="expo-page-info">
       <div class="expo-page-info-title">
-        {{ title }}
+        {{ slide.title }}
       </div>
       <div class="expo-page-info-artist">
-        {{ author }}
+        {{ slide.author }}
       </div>
       <p class="expo-page-info-description">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -20,21 +20,13 @@
 
 <script>
 export default {
-  name: 'ExpoItem',
+  name: 'ExpoSlide',
   props: {
+    slide: {
+      type: Object,
+      default: null
+    },
     image: {
-      type: String,
-      default: ''
-    },
-    title: {
-      type: String,
-      default: ''
-    },
-    author: {
-      type: String,
-      default: ''
-    },
-    description: {
       type: String,
       default: ''
     }
