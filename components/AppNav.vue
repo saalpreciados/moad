@@ -1,7 +1,7 @@
 <template>
   <b-navbar toggleable="md" type="light" fixed="top">
     <b-navbar-brand to="/">
-      Moad
+      <logo version="horizontal" subtitled />
     </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse" />
@@ -23,8 +23,12 @@
 </template>
 
 <script>
+import Logo from '../components/Logo'
 export default {
-  name: 'AppNav'
+  name: 'AppNav',
+  components: {
+    Logo
+  }
 }
 </script>
 
@@ -49,7 +53,7 @@ export default {
     .navbar-brand {
       svg {
         height: 36px;
-        width: 87px;
+        width: 12rem;
       }
 
       &::after {
