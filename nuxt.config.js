@@ -14,7 +14,10 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css' }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -27,7 +30,9 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/vue-zoomer', mode: 'client' }],
+  plugins: [
+    { src: '~/plugins/vue-zoomer', mode: 'client' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
