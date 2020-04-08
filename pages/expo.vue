@@ -58,10 +58,9 @@ export default {
 @import '../sass/variables';
 
 .fade-enter-active, .fade-leave-active {
-  transition: .5s;
+  transition: opacity .5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translateX(20px);
   opacity: 0;
 }
 
@@ -90,14 +89,6 @@ export default {
     position: fixed;
     font-size: 3rem;
     bottom: 45vh;
-
-    &::before {
-      content: '';
-      z-index: -10;
-      width: 100px;
-      height: 100px;
-      background-color: gray;
-    }
   }
 
   &-next {
@@ -111,9 +102,9 @@ export default {
 
 @include media-breakpoint-down(md) {
   .expo-wrapper {
-    display: block;
-    height: 92vh;
+    height: 90vh;
     margin: 0;
+    place-items: center end;
   }
 
   .expo-nav {
@@ -121,14 +112,15 @@ export default {
     bottom: 0;
     background-color: $light;
     z-index: 100;
-    height: 4rem;
+    height: 4.25rem;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 
     &-next, &-prev {
-      bottom: 0;
+      font-size: 2.35rem;
+      bottom: 10px;
     }
 
     &-next {

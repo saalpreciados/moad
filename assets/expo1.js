@@ -6,6 +6,12 @@ import untitled1 from './art/motocross-saito/untitled-1.png'
 
 const expo1 = [
   {
+    html: '<h1>Commodo consequat.</h1>',
+    title: 'Whatever title',
+    description: '',
+    custom: true
+  },
+  {
     title: 'Aerial Trams',
     img: aerialTrams,
     author: 'Elvin Aliyev',
@@ -28,6 +34,12 @@ const expo1 = [
     img: stairs,
     author: 'Elvin Aliyev',
     tags: ''
+  },
+  {
+    html: '',
+    title: '',
+    details: '',
+    custom: true
   },
   {
     title: 'Untitled 1',

@@ -1,18 +1,38 @@
 <template>
-  <div class="expo-page">
-    <art :img="slide.img" />
-    <div class="expo-page-info">
-      <div class="expo-page-info-title">
-        {{ slide.title }}
+  <div>
+    <template v-if="!slide.custom">
+      <div class="expo-slide">
+        <art :img="slide.img" />
+        <div class="expo-slide-info">
+          <div class="expo-slide-info-title">
+            {{ slide.title }}
+          </div>
+          <div class="expo-slide-info-artist">
+            {{ slide.author }}
+          </div>
+          <div class="expo-slide-info-share">
+            <a :href="slide.twitter"><i class="lab la-twitter" /></a>
+            <a :href="slide.link"><i class="las la-link" /></a>
+          </div>
+          <p class="expo-slide-info-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
       </div>
-      <div class="expo-page-info-artist">
-        {{ slide.author }}
+    </template>
+    <template v-if="slide.custom">
+      <div class="expo-slide-custom container">
+        <div class="expo-slide-custom-title">
+          {{ slide.title }}
+        </div>
+        <p class="expo-slide-custom-info">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <template class="expo-slide-custom-html" />
       </div>
-      <p class="expo-page-info-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-    </div>
+    </template>
   </div>
 </template>
 
@@ -39,7 +59,7 @@ export default {
 <style lang="scss" scoped>
 @import '../sass/variables';
 
-.expo-page {
+.expo-slide {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 1.5rem;
@@ -59,11 +79,28 @@ export default {
     &-description {
       margin: 0;
     }
+
+    &-share {
+      font-size: 1.75rem;
+      a {
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  &-custom {
+    margin-top: 4rem;
+    align-self: center;
+    &-title {
+      font-size: 2.75rem
+    }
   }
 }
 
 @include media-breakpoint-down(md) {
-.expo-page {
+.expo-slide {
 display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: 70vh 1fr;
@@ -81,27 +118,5 @@ margin: 0;
   }
 }
 
-}
-
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to {
-  transform: translateX(10px);
-  opacity: 0;
-}
-
-.scale-fade-enter-active {
-  transition: all .3s ease;
-}
-.scale-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.scale-fade-enter, .slide-fade-leave-to {
-  transform: scale(1.1);
-  opacity: 0;
 }
 </style>

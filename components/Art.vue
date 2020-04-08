@@ -1,5 +1,5 @@
 <template>
-  <div class="expo-page-art">
+  <div class="expo-slide-art">
     <img v-if="showModal == false" :src="img" alt="Untitled 1" @click="toggleModal()">
     <div v-if="showModal" class="art-modal">
       <v-zoomer ref="zoomer">
@@ -10,10 +10,10 @@
       </v-zoomer>
       <div class="art-modal-controls">
         <button class="button controls-button" @click="$refs.zoomer.zoomIn()">
-          +
+          <i class="las la-search-plus" />
         </button>
         <button class="button controls-button" @click="$refs.zoomer.zoomOut()">
-          -
+          <i class="las la-search-minus" />
         </button>
         <button class="button controls-button" @click="showModal = false">
           x
@@ -40,6 +40,7 @@ export default {
   methods: {
     toggleModal () {
       this.showModal = !this.showModal
+      this.$emit('modalToggled')
     }
   }
 }
@@ -48,7 +49,7 @@ export default {
 <style lang="scss" scoped>
 @import '../sass/variables';
 
-.expo-page-art {
+.expo-slide-art {
     align-self: center;
     justify-self: center;
 
@@ -69,7 +70,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr;
   margin: 0 2rem;
-  z-index: 10;
+  z-index: 100;
 
   .vue-zoomer {
     align-self: center;
@@ -85,21 +86,23 @@ export default {
     width: 100%;
     position: fixed;
     display: flex;
-    height: 3.5rem;
+    height: 4rem;
     justify-content: center;
+    align-items: center;
     left: 0;
     bottom: 0;
     background: white;
   }
 
   .controls-button {
-    font-size: 2.25rem;
-    padding: 0 1rem;
+    font-size: 2rem;
+    height: 3.25rem;
+    width: 3.25rem;
   }
 }
 
 @include media-breakpoint-down(md) {
-.expo-page-art {
+.expo-slide-art {
     position: fixed;
     grid-area: art;
     height: 70vh;
@@ -116,7 +119,7 @@ export default {
 }
 
 @media (max-width: 350px) {
-.expo-page {
+.expo-slide {
 grid-template-rows: 57vh 1fr;
 
   &-art {
