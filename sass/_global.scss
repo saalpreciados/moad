@@ -38,10 +38,16 @@ a {
   color: $primary;
   text-decoration: none;
   transition: .25s ease-in-out;
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+    background-color: $gray-light;
+    border-radius: .5rem;
+  }
 }
 
 a.link-arrow {
-  
   display: block;
 
   &::after {
@@ -61,6 +67,19 @@ a.link-arrow {
 .button {
   border: none;
   background: transparent;
+  height: 4rem;
+  width: 4rem;
+  background-color: transparent;
+  transition: 0.2s ease-in-out;
+  border-radius: 100%;
+  border: 2px solid transparent;
+  line-height: 0;
+
+  &:hover, &:focus {
+    outline: none;
+    background-color: $gray-light;
+    border-radius: 100%;
+  }
 }
 
 
@@ -68,6 +87,11 @@ a.link-arrow {
   h1 {
     margin: 1.5rem 0;
     font-size: 2.5rem;
+  }
+
+  .button {
+    height: 3.25rem;
+    width: 3.25rem;
   }
 }
 
