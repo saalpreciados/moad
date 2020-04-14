@@ -9,14 +9,11 @@
         >
       </v-zoomer>
       <div class="art-modal-controls" @click.stop>
-        <button class="button controls-button" @click="$refs.zoomer.zoomIn()">
+        <button class="button button-sm" @click="$refs.zoomer.zoomIn()">
           <i class="las la-search-plus" />
         </button>
-        <button class="button controls-button" @click="$refs.zoomer.zoomOut()">
+        <button class="button button-sm" @click="$refs.zoomer.zoomOut()">
           <i class="las la-search-minus" />
-        </button>
-        <button class="button controls-button" @click="toggleModal()">
-          <i class="las la-times" />
         </button>
       </div>
     </div>
@@ -92,12 +89,6 @@ export default {
     left: 0;
     bottom: 0;
     background: white;
-  }
-
-  .controls-button {
-    font-size: 2rem;
-    height: 3.25rem;
-    width: 3.25rem;
   }
 }
 

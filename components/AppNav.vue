@@ -6,7 +6,21 @@
 
     <b-navbar-toggle target="nav-collapse" />
 
-    <b-collapse id="nav-collapse" is-nav>
+    <div v-if="showModal" class="nav-close-modal d-none d-md-flex">
+      <div class="nav-close-modal-info">
+        <div class="nav-close-modal-info-art">
+          Obra sense titol
+        </div>
+        <div class="nav-close-modal-info-author">
+          Autor qualsevol
+        </div>
+      </div>
+      <button class="button button-sm" @click="toggleModal()">
+        <i class="las la-times" />
+      </button>
+    </div>
+
+    <b-collapse v-if="!showModal" id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item to="/expo">
           Exposició
@@ -28,6 +42,16 @@ export default {
   name: 'AppNav',
   components: {
     Logo
+  },
+  computed: {
+    showModal () {
+      return this.$store.state.showModal
+    }
+  },
+  methods: {
+    toggleModal () {
+      this.$store.commit('toggleModal')
+    }
   }
 }
 </script>
@@ -37,7 +61,7 @@ export default {
 
   .navbar-light {
     background: $light;
-    border-bottom: 1.5px $dark solid;
+    border-bottom: 0 $dark solid;
 
     .navbar-nav {
       a.nav-link {
@@ -64,6 +88,22 @@ export default {
         .lt {
           fill: $dark;
         }
+      }
+    }
+  }
+
+  .nav-close-modal {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-info {
+      text-align: right;
+      margin-right: 1rem;
+
+      &-author {
+        font-size: 0.8rem;
       }
     }
   }

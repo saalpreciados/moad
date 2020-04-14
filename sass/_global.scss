@@ -80,6 +80,12 @@ a.link-arrow {
     background-color: $gray-light;
     border-radius: 100%;
   }
+
+  &-sm {
+    font-size: 1.7rem;
+    height: 3rem;
+    width: 3rem;
+  }
 }
 
 
