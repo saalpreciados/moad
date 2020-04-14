@@ -1,22 +1,22 @@
 <template>
-  <div class="expo-slide-art">
+  <div :class="[showModal ? 'expo-slide-art--modal-open' : 'expo-slide-art']">
     <img v-if="showModal == false" :src="img" alt="Untitled 1" @click="toggleModal()">
-    <div v-if="showModal" class="art-modal">
+    <div v-if="showModal" class="art-modal" @click="toggleModal()">
       <v-zoomer ref="zoomer">
         <img
           :src="img"
-          style="object-fit: contain; width: 100%; height: 100%;"
+          @click.stop
         >
       </v-zoomer>
-      <div class="art-modal-controls">
+      <div class="art-modal-controls" @click.stop>
         <button class="button controls-button" @click="$refs.zoomer.zoomIn()">
           <i class="las la-search-plus" />
         </button>
         <button class="button controls-button" @click="$refs.zoomer.zoomOut()">
           <i class="las la-search-minus" />
         </button>
-        <button class="button controls-button" @click="showModal = false">
-          x
+        <button class="button controls-button" @click="toggleModal()">
+          <i class="las la-times" />
         </button>
       </div>
     </div>
@@ -32,15 +32,14 @@ export default {
       default: ''
     }
   },
-  data () {
-    return {
-      showModal: false
+  computed: {
+    showModal () {
+      return this.$store.state.showModal
     }
   },
   methods: {
     toggleModal () {
-      this.showModal = !this.showModal
-      this.$emit('modalToggled')
+      this.$store.commit('toggleModal')
     }
   }
 }
@@ -73,6 +72,7 @@ export default {
   z-index: 100;
 
   .vue-zoomer {
+    overflow: initial;
     align-self: center;
     justify-self: center;
 
@@ -114,6 +114,16 @@ export default {
     img {
       max-height: 100%;
       max-width: 90vw;
+    }
+
+    &--modal-open {
+      align-self: center;
+      justify-self: center;
+
+      img {
+        max-height: 70vh;
+        max-width: 55vw;
+      }
     }
   }
 }

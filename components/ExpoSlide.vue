@@ -3,7 +3,7 @@
     <template v-if="!slide.custom">
       <div class="expo-slide">
         <art :img="slide.img" />
-        <div class="expo-slide-info">
+        <div v-if="!showModal" class="expo-slide-info">
           <div class="expo-slide-info-title">
             {{ slide.title }}
           </div>
@@ -51,6 +51,11 @@ export default {
     image: {
       type: String,
       default: ''
+    }
+  },
+  computed: {
+    showModal () {
+      return this.$store.state.showModal
     }
   }
 }
