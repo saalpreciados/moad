@@ -4,7 +4,7 @@
     <model-obj
       height="1000"
       width="1000"
-      :src="expo2[0].src"
+      src="../assets/art/models/test.obj"
     />
   </div>
 </template>
