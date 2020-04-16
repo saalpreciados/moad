@@ -1,6 +1,6 @@
 <template>
   <div :class="[showModal ? 'expo-slide-art--modal-open' : 'expo-slide-art']">
-    <img v-if="showModal == false" :src="img" alt="Untitled 1" @click="toggleModal()">
+    <img v-if="showModal == false" :src="img" alt="Untitled 1" class="art-img" @click="toggleModal()">
     <div v-if="showModal" class="art-modal" @click="toggleModal()">
       <v-zoomer ref="zoomer">
         <img
@@ -8,12 +8,17 @@
           @click.stop
         >
       </v-zoomer>
-      <div class="art-modal-controls" @click.stop>
+      <div class="art-modal-controls-lg" @click.stop>
         <button class="button button-sm" @click="$refs.zoomer.zoomIn()">
           <i class="las la-search-plus" />
         </button>
         <button class="button button-sm" @click="$refs.zoomer.zoomOut()">
           <i class="las la-search-minus" />
+        </button>
+      </div>
+      <div v-if="showModal" class="art-modal-controls-md" @click.stop>
+        <button class="button" @click="toggleModal()">
+          <i class="las la-times" />
         </button>
       </div>
     </div>
@@ -55,6 +60,12 @@ export default {
     }
   }
 
+.art-img {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .art-modal {
   position: absolute;
   top: 0;
@@ -74,12 +85,13 @@ export default {
     justify-self: center;
 
     img {
+      cursor: move;
       max-height: 90vh;
       max-width: 100vw;
     }
   }
 
-  &-controls {
+  &-controls-lg {
     width: 100%;
     position: fixed;
     display: flex;
@@ -89,6 +101,10 @@ export default {
     left: 0;
     bottom: 0;
     background: white;
+  }
+
+  &-controls-md {
+    display: none;
   }
 }
 
@@ -114,6 +130,29 @@ export default {
       img {
         max-height: 70vh;
         max-width: 55vw;
+      }
+    }
+  }
+
+  .art-modal {
+    &-controls-lg {
+      display: none;
+    }
+
+    &-controls-md {
+      width: 100%;
+      position: fixed;
+      display: flex;
+      height: 6rem;
+      justify-content: center;
+      align-items: center;
+      left: 0;
+      bottom: 0;
+      background: white;
+      text-align: center;
+
+      .button {
+        padding-bottom: 4rem;
       }
     }
   }

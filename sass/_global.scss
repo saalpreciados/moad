@@ -74,6 +74,7 @@ a.link-arrow {
   border-radius: 100%;
   border: 2px solid transparent;
   line-height: 0;
+  font-size: 3rem;
 
   &:hover, &:focus {
     outline: none;
@@ -93,11 +94,6 @@ a.link-arrow {
   h1 {
     margin: 1.5rem 0;
     font-size: 2.5rem;
-  }
-
-  .button {
-    height: 3.25rem;
-    width: 3.25rem;
   }
 }
 

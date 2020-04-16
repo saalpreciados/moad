@@ -78,7 +78,6 @@ export default {
 }
 
 @include media-breakpoint-down(md) {
-
   .expo-nav {
     position: fixed;
     bottom: 0;
