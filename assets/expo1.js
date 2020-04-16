@@ -1,7 +1,7 @@
 import aerialTrams from './art/elvin-aliyev/aerial-trams.jpg'
 import station from './art/elvin-aliyev/celestial-station.jpg'
 import stairs from './art/elvin-aliyev/stairs.jpg'
-import thePlanet from './art/elvin-aliyev/the-Planet.png'
+import thePlanet from './art/elvin-aliyev/the-planet.png'
 import untitled1 from './art/motocross-saito/untitled-1.png'
 
 const expo1 = [
