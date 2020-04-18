@@ -1,47 +1,29 @@
 <template>
   <div :class="[showModal ? 'expo-slide-art--modal-open' : 'expo-slide-art']">
-    <img v-if="showModal == false" :src="img" alt="Untitled 1" class="art-img" @click="toggleModal()">
-    <div v-if="showModal" class="art-modal" @click="toggleModal()">
-      <v-zoomer ref="zoomer">
-        <img
-          :src="img"
-          @click.stop
-        >
-      </v-zoomer>
-      <div class="art-modal-controls-lg" @click.stop>
-        <button class="button button-sm" @click="$refs.zoomer.zoomIn()">
-          <i class="las la-search-plus" />
-        </button>
-        <button class="button button-sm" @click="$refs.zoomer.zoomOut()">
-          <i class="las la-search-minus" />
-        </button>
-      </div>
-      <div v-if="showModal" class="art-modal-controls-md" @click.stop>
-        <button class="button" @click="toggleModal()">
-          <i class="las la-times" />
-        </button>
-      </div>
-    </div>
+    <art-img v-if="src.type === 'img'" :src="src.url" />
+    <art-3d v-if="src.type === '3d'" :src="src.url" />
   </div>
 </template>
 
 <script>
+import ArtImg from './ArtImg'
+import Art3d from './Art3d'
+
 export default {
   name: 'Art',
+  components: {
+    ArtImg,
+    Art3d
+  },
   props: {
-    img: {
-      type: String,
-      default: ''
+    src: {
+      type: Object,
+      default: null
     }
   },
   computed: {
     showModal () {
       return this.$store.state.showModal
-    }
-  },
-  methods: {
-    toggleModal () {
-      this.$store.commit('toggleModal')
     }
   }
 }
@@ -51,61 +33,8 @@ export default {
 @import '../sass/variables';
 
 .expo-slide-art {
-    align-self: center;
-    justify-self: center;
-
-    img {
-      max-height: 70vh;
-      max-width: 55vw;
-    }
-  }
-
-.art-img {
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.art-modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: white;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 0 2rem;
-  z-index: 100;
-
-  .vue-zoomer {
-    overflow: initial;
-    align-self: center;
-    justify-self: center;
-
-    img {
-      cursor: move;
-      max-height: 90vh;
-      max-width: 100vw;
-    }
-  }
-
-  &-controls-lg {
-    width: 100%;
-    position: fixed;
-    display: flex;
-    height: 4rem;
-    justify-content: center;
-    align-items: center;
-    left: 0;
-    bottom: 0;
-    background: white;
-  }
-
-  &-controls-md {
-    display: none;
-  }
+  align-self: center;
+  justify-self: center;
 }
 
 @include media-breakpoint-down(md) {
@@ -118,11 +47,6 @@ export default {
     align-items: center;
     justify-content: center;
 
-    img {
-      max-height: 100%;
-      max-width: 90vw;
-    }
-
     &--modal-open {
       align-self: center;
       justify-self: center;
@@ -130,29 +54,6 @@ export default {
       img {
         max-height: 70vh;
         max-width: 55vw;
-      }
-    }
-  }
-
-  .art-modal {
-    &-controls-lg {
-      display: none;
-    }
-
-    &-controls-md {
-      width: 100%;
-      position: fixed;
-      display: flex;
-      height: 6rem;
-      justify-content: center;
-      align-items: center;
-      left: 0;
-      bottom: 0;
-      background: white;
-      text-align: center;
-
-      .button {
-        padding-bottom: 4rem;
       }
     }
   }

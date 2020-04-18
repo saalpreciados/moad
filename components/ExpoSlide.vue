@@ -2,7 +2,7 @@
   <div>
     <template v-if="!slide.custom">
       <div class="expo-slide">
-        <art :img="slide.img" />
+        <art :src="slide.src" />
         <div v-if="!showModal" class="expo-slide-info">
           <div class="expo-slide-info-title">
             {{ slide.title }}
@@ -47,10 +47,6 @@ export default {
     slide: {
       type: Object,
       default: null
-    },
-    image: {
-      type: String,
-      default: ''
     }
   },
   computed: {

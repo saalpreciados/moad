@@ -12,26 +12,47 @@ const expo1 = [
     custom: true
   },
   {
+    title: 'Test',
+    src: {
+      type: '3d',
+      url: '../models/test.obj'
+    },
+    author: 'Test',
+    tags: ''
+  },
+  {
     title: 'Aerial Trams',
-    img: aerialTrams,
+    src: {
+      type: 'img',
+      url: aerialTrams
+    },
     author: 'Elvin Aliyev',
     tags: ''
   },
   {
     title: 'Station',
-    img: station,
+    src: {
+      type: 'img',
+      url: station
+    },
     author: 'Elvin Aliyev',
     tags: ''
   },
   {
     title: 'The Planet',
-    img: thePlanet,
+    src: {
+      type: 'img',
+      url: thePlanet
+    },
     author: 'Elvin Aliyev',
     tags: ''
   },
   {
     title: 'Stairs',
-    img: stairs,
+    src: {
+      type: 'img',
+      url: stairs
+    },
     author: 'Elvin Aliyev',
     tags: ''
   },
@@ -43,7 +64,10 @@ const expo1 = [
   },
   {
     title: 'Untitled 1',
-    img: untitled1,
+    src: {
+      type: 'img',
+      url: untitled1
+    },
     author: 'Motocross Saito',
     tags: ''
   }

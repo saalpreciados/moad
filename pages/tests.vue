@@ -1,13 +1,6 @@
 <template>
-  <div>
-    <i class="las la-battery-three-quarters" />
-  </div>
+  <div />
 </template>
-
 <script>
 
 </script>
-
-<style lang="scss" scoped>
-
-</style>

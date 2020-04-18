@@ -31,7 +31,8 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/vue-zoomer', mode: 'client' }
+    { src: '~/plugins/vue-zoomer', mode: 'client' },
+    { src: '~/plugins/vue-3d-model', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -58,9 +59,6 @@ export default {
    ** Build configuration
    */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend (config, ctx) { }
+    extend (config, ctx) {}
   }
 }
