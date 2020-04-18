@@ -59,13 +59,6 @@ export default {
    ** Build configuration
    */
   build: {
-    extend (config, ctx) {
-      config.module.rules.push(
-        {
-          test: /\.obj$/,
-          loader: 'webpack-obj-loader'
-        }
-      )
-    }
+    extend (config, ctx) {}
   }
 }
