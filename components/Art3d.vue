@@ -14,7 +14,6 @@
       <div class="model-wrapper-modal">
         <model-obj
           :src="src"
-          :camera-position="cameraPosition"
         />
       </div>
       <ul class="art-modal-controls-lg">
@@ -44,11 +43,7 @@ export default {
     return {
       enablePan: false,
       enableZoom: false,
-      enableRotate: false,
-      cameraPosition: {
-        x: 0, y: 0, z: -1
-      },
-      hi: 0
+      enableRotate: false
     }
   },
   computed: {
@@ -59,13 +54,6 @@ export default {
   methods: {
     toggleModal () {
       this.$store.commit('toggleModal')
-    },
-    zoomIn () {
-      this.cameraPosition = {
-        x: 0,
-        y: 0,
-        z: 0
-      }
     }
   }
 }
