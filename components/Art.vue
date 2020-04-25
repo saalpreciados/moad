@@ -3,6 +3,7 @@
     <art-img v-if="src.type === 'img'" :src="src.url" />
     <art-3d v-if="src.type === '3d'" :src="src.url" />
     <art-video v-if="src.type === 'video'" :src="src.url" />
+    <art-html v-if="src.type === 'html'" :src="src" />
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import ArtImg from './ArtImg'
 import Art3d from './Art3d'
 import ArtVideo from './ArtVideo'
+import ArtHtml from './ArtHtml'
 
 export default {
   name: 'Art',
   components: {
     ArtImg,
     Art3d,
-    ArtVideo
+    ArtVideo,
+    ArtHtml
   },
   props: {
     src: {

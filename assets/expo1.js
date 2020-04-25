@@ -12,10 +12,21 @@ const expo1 = [
     custom: true
   },
   {
+    title: 'HTML',
+    src: {
+      type: 'html',
+      url: 'https://wwwwwwwww.jodi.org/100cc/index.html',
+      thumbnail: untitled1
+    },
+    author: 'Test',
+    tags: ''
+  },
+  {
     title: 'Video',
     src: {
       type: 'video',
-      url: '../video/mov_bbb.mp4'
+      url: '../video/mov_bbb.mp4',
+      thumbnail: untitled1
     },
     author: 'Test',
     tags: ''
@@ -24,7 +35,8 @@ const expo1 = [
     title: 'Test',
     src: {
       type: '3d',
-      url: '../models/test.obj'
+      url: '../models/test.obj',
+      thumbnail: untitled1
     },
     author: 'Test',
     tags: ''
@@ -33,7 +45,8 @@ const expo1 = [
     title: 'Aerial Trams',
     src: {
       type: 'img',
-      url: aerialTrams
+      url: aerialTrams,
+      thumbnail: aerialTrams
     },
     author: 'Elvin Aliyev',
     tags: ''
@@ -42,7 +55,8 @@ const expo1 = [
     title: 'Station',
     src: {
       type: 'img',
-      url: station
+      url: station,
+      thumbnail: station
     },
     author: 'Elvin Aliyev',
     tags: ''
@@ -51,7 +65,8 @@ const expo1 = [
     title: 'The Planet',
     src: {
       type: 'img',
-      url: thePlanet
+      url: thePlanet,
+      thumbnail: thePlanet
     },
     author: 'Elvin Aliyev',
     tags: ''
@@ -60,7 +75,8 @@ const expo1 = [
     title: 'Stairs',
     src: {
       type: 'img',
-      url: stairs
+      url: stairs,
+      thumbnail: stairs
     },
     author: 'Elvin Aliyev',
     tags: ''
@@ -75,7 +91,8 @@ const expo1 = [
     title: 'Untitled 1',
     src: {
       type: 'img',
-      url: untitled1
+      url: untitled1,
+      thumbnail: untitled1
     },
     author: 'Motocross Saito',
     tags: ''
