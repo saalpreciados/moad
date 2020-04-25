@@ -12,6 +12,15 @@ const expo1 = [
     custom: true
   },
   {
+    title: 'Video',
+    src: {
+      type: 'video',
+      url: '../video/mov_bbb.mp4'
+    },
+    author: 'Test',
+    tags: ''
+  },
+  {
     title: 'Test',
     src: {
       type: '3d',

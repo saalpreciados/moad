@@ -2,18 +2,21 @@
   <div :class="[showModal ? 'expo-slide-art--modal-open' : 'expo-slide-art']">
     <art-img v-if="src.type === 'img'" :src="src.url" />
     <art-3d v-if="src.type === '3d'" :src="src.url" />
+    <art-video v-if="src.type === 'video'" :src="src.url" />
   </div>
 </template>
 
 <script>
 import ArtImg from './ArtImg'
 import Art3d from './Art3d'
+import ArtVideo from './ArtVideo'
 
 export default {
   name: 'Art',
   components: {
     ArtImg,
-    Art3d
+    Art3d,
+    ArtVideo
   },
   props: {
     src: {
