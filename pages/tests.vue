@@ -1,6 +1,91 @@
 <template>
-  <div />
+  <div>
+    <div class="expo-wrapper">
+      <h2>Mapa</h2>
+      <h2>Nom de l'exposició</h2>
+      <ul class="expo-map">
+        <li v-for="(expo, i) in filteredExpo" :key="i" class="expo-map-item">
+          <a href="#">
+            <img :src="expo.src.thumbnail" alt="">
+            <div class="expo-map-item-title">{{ expo.title }}</div>
+            <div class="expo-map-item-author">{{ expo.author }}</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
-<script>
 
+<script>
+import expo1 from '../assets/expo1.js'
+
+export default {
+  data () {
+    return {
+      expo1,
+      showModal: false
+    }
+  },
+  computed: {
+    expoLength () {
+      return this.expo1.length
+    },
+    currentSlide () {
+      return this.$store.state.currentSlide
+    },
+    filteredExpo () {
+      return expo1.filter(this.removeEmpty)
+    }
+  },
+  methods: {
+    removeEmpty (obj) {
+      return Object.prototype.hasOwnProperty.call(obj, 'src')
+    }
+  }
+}
 </script>
+
+<style lang="scss" scoped>
+@import '../sass/variables';
+
+.expo-wrapper {
+  height: 92vh;
+  margin: 0;
+  padding: 0 2rem;
+}
+
+.expo-map {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, 250px);
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.expo-map-item {
+  img {
+    object-fit: cover;
+    height: 250px;
+    width: 250px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $dark;
+  }
+
+  &-title {
+    font-size: 1.2rem;
+    margin: 1rem 0 0.25rem 0;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .expo-wrapper {
+    height: 90vh;
+    margin: 0;
+    place-items: center end;
+  }
+}
+</style>

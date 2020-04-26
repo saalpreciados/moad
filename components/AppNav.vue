@@ -9,10 +9,10 @@
     <div v-if="showModal" class="nav-close-modal d-none d-md-flex">
       <div class="nav-close-modal-info">
         <div class="nav-close-modal-info-art">
-          Obra sense titol
+          {{ currentArt.art }}
         </div>
         <div class="nav-close-modal-info-author">
-          Autor qualsevol
+          {{ currentArt.author }}
         </div>
       </div>
       <button class="button button-sm" @click="toggleModal()">
@@ -20,7 +20,18 @@
       </button>
     </div>
 
-    <b-collapse v-if="!showModal" id="nav-collapse" is-nav>
+    <div v-if="showMap" class="nav-close-modal d-none d-md-flex">
+      <div class="nav-close-modal-info">
+        <div class="nav-close-modal-info-art">
+          Tancar Mapa
+        </div>
+      </div>
+      <button class="button button-sm" @click="toggleMap()">
+        <i class="las la-times" />
+      </button>
+    </div>
+
+    <b-collapse v-if="!showModal && !showMap" id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item to="/expo">
           Exposició
@@ -46,11 +57,20 @@ export default {
   computed: {
     showModal () {
       return this.$store.state.showModal
+    },
+    showMap () {
+      return this.$store.state.showMap
+    },
+    currentArt () {
+      return this.$store.state.currentArt
     }
   },
   methods: {
     toggleModal () {
       this.$store.commit('toggleModal')
+    },
+    toggleMap () {
+      this.$store.commit('toggleMap')
     }
   }
 }

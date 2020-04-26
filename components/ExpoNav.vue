@@ -1,11 +1,13 @@
 <template>
   <div v-if="!showModal" class="expo-nav">
-    <a class="expo-nav-progress" :style="progressBarLength" href="/" />
-    <button class="expo-nav-prev button" @click="prevSlide()">
+    <button class="expo-nav-progress button-def" :style="progressBarLength" @click="toggleMap()" />
+    <button v-if="showControls" class="expo-nav-prev button" @click="prevSlide()">
       ←
     </button>
-    <a class="expo-nav-map d-lg-none d-xl-none" href="/"> Mapa </a>
-    <button class="expo-nav-next button" @click="nextSlide()">
+    <button v-if="showControls" class="expo-nav-map d-lg-none d-xl-none button-def" @click="toggleMap()">
+      Mapa
+    </button>
+    <button v-if="showControls" class="expo-nav-next button" @click="nextSlide()">
       →
     </button>
   </div>
@@ -17,6 +19,10 @@ export default {
     expoLength: {
       type: Number,
       default: 0
+    },
+    showControls: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -28,18 +34,24 @@ export default {
     },
     showModal () {
       return this.$store.state.showModal
+    },
+    showMap () {
+      return this.$store.state.showMap
     }
   },
   methods: {
     nextSlide () {
       if (this.expoLength > (this.currentSlide + 1)) {
-        this.$store.commit('changeCurrentSlide', 1)
+        this.$store.commit('changeCurrentSlide', this.currentSlide + 1)
       }
     },
     prevSlide () {
       if ((this.currentSlide - 1) >= 0) {
-        this.$store.commit('changeCurrentSlide', -1)
+        this.$store.commit('changeCurrentSlide', this.currentSlide - 1)
       }
+    },
+    toggleMap () {
+      this.$store.commit('toggleMap')
     }
   }
 }

@@ -1,13 +1,14 @@
 <template>
   <div>
-    <div class="expo-wrapper">
+    <div v-if="!showMap" class="expo-wrapper">
       <transition name="fade" mode="out-in">
         <template v-for="(expo, i) in expo1">
           <expo-slide v-if="i == currentSlide" :key="i" :slide="expo1[currentSlide]" />
         </template>
       </transition>
     </div>
-    <expo-nav :expo-length="expoLength" />
+    <expo-map v-if="showMap" :expo="expo1" />
+    <expo-nav :expo-length="expoLength" :show-controls="!showMap" />
   </div>
 </template>
 
@@ -15,11 +16,13 @@
 import expo1 from '../assets/expo1.js'
 import ExpoSlide from '../components/ExpoSlide'
 import ExpoNav from '../components/ExpoNav'
+import ExpoMap from '../components/ExpoMap'
 
 export default {
   components: {
     ExpoSlide,
-    ExpoNav
+    ExpoNav,
+    ExpoMap
   },
   data () {
     return {
@@ -33,6 +36,14 @@ export default {
     },
     currentSlide () {
       return this.$store.state.currentSlide
+    },
+    showMap () {
+      return this.$store.state.showMap
+    }
+  },
+  watch: {
+    currentSlide (newslide, oldslide) {
+      this.$store.commit('changeCurrentArt', { art: expo1[this.currentSlide].title, author: expo1[this.currentSlide].author })
     }
   }
 }
