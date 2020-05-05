@@ -15,6 +15,9 @@
             <div class="expo-map-item-author">
               {{ art.author }}
             </div>
+            <div v-if="i === currentSlide" class="expo-map-item-selected">
+              <i class="las la-map-marker" /> Estàs ací
+            </div>
           </button>
         </li>
       </ul>
@@ -92,6 +95,9 @@ export default {
   }
 
   &-selected {
+    text-align: left;
+    color: blue;
+
     .expo-map-item-title, .expo-map-item-author {
       color: blue;
     }
