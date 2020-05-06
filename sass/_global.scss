@@ -28,9 +28,9 @@ h6 {
 }
 
 h1 {
-  font-weight: bold;
   margin: 3.75rem 0;
   font-size: 3.75rem;
+  text-align: center;
 }
 
 //links
@@ -92,6 +92,21 @@ a.link-arrow {
     font-size: 1.7rem;
     height: 3rem;
     width: 3rem;
+  }
+}
+
+.tooltip-moad {
+  margin-bottom: .25rem;
+
+  .tooltip-inner {
+    color: $body-color;
+    background-color: $white;
+    border-radius: 0;
+    border: 1.25px solid $body-color;
+  }
+  
+  .arrow::before {
+    border-top-color: transparent;
   }
 }
 

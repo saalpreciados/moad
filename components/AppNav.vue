@@ -1,7 +1,7 @@
 <template>
   <b-navbar toggleable="md" type="light" fixed="top">
     <b-navbar-brand to="/">
-      <logo version="horizontal" subtitled />
+      <logo version="symbol" subtitled />
     </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse" />
@@ -96,7 +96,7 @@ export default {
 
     .navbar-brand {
       svg {
-        height: 36px;
+        height: 26px;
         width: 12rem;
       }
 

@@ -5,8 +5,8 @@
       <div class="expo-link-hall">Sala {{ number }}</div>
       <h2 class="expo-link-title">{{ exposition.title }}</h2>
       <p class="expo-link-description">{{ exposition.description }}</p>
+      <span :class="['expo-number', number % 2 === 0 ? 'expo-number-right' : 'expo-number-left']">0{{ number }}</span>
     </a>
-    <span :class="['expo-number', number % 2 === 0 ? 'expo-number-right' : 'expo-number-left']">0{{ number }}</span>
   </div>
 </template>
 
@@ -80,18 +80,36 @@ export default {
     position: absolute;
     font-family: soulcraft;
     mix-blend-mode: multiply;
-    bottom: 5rem;
+    bottom: 0;
     z-index: 10;
     color: $primary;
-    font-size: 22rem;
+    font-size: 20rem;
     font-weight: bold;
     transform: rotate(-90deg);
+
     &-left {
-      left: 12rem;
+      left: -10rem;
     }
 
     &-right {
-      right: 12rem;
+      right: -8rem;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .expo {
+    &-number {
+      font-size: 17rem;
+
+      &-left {
+        left: -5rem;
+        bottom: 1rem;
+      }
+
+      &-right {
+        right: -6rem;
+      }
     }
   }
 }
@@ -99,13 +117,15 @@ export default {
 @include media-breakpoint-down(md) {
   .expo {
     &-number {
-      bottom: 18rem;
-      font-size: 15rem;
+      font-size: 14rem;
+
     &-left, &-right {
-      left: 0;
-      right: -22rem;
+      left: initial;
+      bottom: -1rem;
+      right: -5rem;
     }
   }
+
   &-link {
       img {
         height: 375px;

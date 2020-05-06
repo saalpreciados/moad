@@ -1,6 +1,9 @@
 <template>
   <div v-if="!showModal" class="expo-nav">
-    <button class="expo-nav-progress button-def" :style="progressBarLength" @click="toggleMap()" />
+    <button id="progress-bar" class="expo-nav-progress button-def" :style="progressBarLength" @click="toggleMap()" />
+    <b-tooltip target="progress-bar" triggers="hover" offset="10000px" custom-class="tooltip-moad">
+      Obrir Mapa
+    </b-tooltip>
     <button v-if="showControls" class="expo-nav-prev button" @click="prevSlide()">
       ←
     </button>

@@ -8,7 +8,7 @@
       </transition>
     </div>
     <expo-map v-if="showMap" :expo="expo1" />
-    <expo-nav :expo-length="expoLength" :show-controls="!showMap" />
+    <expo-nav v-if="!showMap" :expo-length="expoLength" />
   </div>
 </template>
 
