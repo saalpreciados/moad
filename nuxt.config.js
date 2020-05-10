@@ -48,13 +48,19 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'nuxt-responsive-loader'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  responsiveLoader: {
+    name: 'img/[hash:7]-[width].[ext]',
+    sizes: [640, 800, 1080, 5000],
+    placeholder: true
+  },
   /*
    ** Build configuration
    */

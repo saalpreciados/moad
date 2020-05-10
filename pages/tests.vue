@@ -1,18 +1,11 @@
 <template>
   <div>
-    <div class="expo-wrapper">
-      <h2>Mapa</h2>
-      <h2>Nom de l'exposició</h2>
-      <ul class="expo-map">
-        <li v-for="(expo, i) in filteredExpo" :key="i" class="expo-map-item">
-          <a href="#">
-            <img :src="expo.src.thumbnail" alt="">
-            <div class="expo-map-item-title">{{ expo.title }}</div>
-            <div class="expo-map-item-author">{{ expo.author }}</div>
-          </a>
-        </li>
-      </ul>
-    </div>
+    <image-loader
+      src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?fit=crop&crop=entropy&w=3456&h=2304"
+      placeholder="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=100"
+      width="864px"
+      height="476px"
+    />
   </div>
 </template>
 

@@ -1,10 +1,16 @@
 <template>
   <div>
-    <img v-if="showModal == false" :src="src" alt="Untitled 1" class="art-src" @click="toggleModal()">
+    <img
+      v-if="showModal == false"
+      :srcset="src.srcSet"
+      alt="Untitled 1"
+      class="art-src"
+      @click="toggleModal()"
+    >
     <div v-if="showModal" class="art-modal" @click="toggleModal()">
       <v-zoomer ref="zoomer">
         <img
-          :src="src"
+          :src="src.images[src.images.length-1].path"
           @click.stop
         >
       </v-zoomer>
@@ -22,6 +28,8 @@
         </button>
       </div>
     </div>
+    </imgage-loader>
+    </image-loader>
   </div>
 </template>
 
@@ -39,6 +47,9 @@ export default {
       return this.$store.state.showModal
     }
   },
+  mounted () {
+    console.log(this.src.images)
+  },
   methods: {
     toggleModal () {
       this.$store.commit('toggleModal')
@@ -52,7 +63,11 @@ export default {
 
 .art-src {
   max-height: 70vh;
-  max-width: 55vw;
+  max-width: 50vw;
+
+  img {
+    object-fit: contain;
+  }
 
   &:hover {
     cursor: pointer;

@@ -1,8 +1,8 @@
-import aerialTrams from './art/elvin-aliyev/aerial-trams.jpg'
-import station from './art/elvin-aliyev/celestial-station.jpg'
-import stairs from './art/elvin-aliyev/stairs.jpg'
-import thePlanet from './art/elvin-aliyev/the-planet.png'
-import untitled1 from './art/motocross-saito/untitled-1.png'
+import aerialTrams from '~/assets/art/elvin-aliyev/aerial-trams.jpg'
+import station from '~/assets/art/elvin-aliyev/celestial-station.jpg'
+import stairs from '~/assets/art/elvin-aliyev/stairs.jpg'
+import thePlanet from '~/assets/art/elvin-aliyev/the-planet.png'
+import untitled1 from '~/assets/art/motocross-saito/untitled-1.png'
 
 const expo1 = [
   {
@@ -35,8 +35,7 @@ const expo1 = [
     title: 'Test',
     src: {
       type: '3d',
-      url: '../models/test.obj',
-      thumbnail: untitled1
+      url: '../models/test.obj'
     },
     author: 'Test',
     tags: ''
