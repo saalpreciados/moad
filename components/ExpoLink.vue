@@ -1,12 +1,18 @@
 <template>
   <div class="expo">
-    <a class="expo-link container" :href="exposition.url">
+    <nuxt-link class="expo-link container" :to="exposition.url">
       <img :src="exposition.img" alt="Untitled 1">
-      <div class="expo-link-hall">Sala {{ number }}</div>
-      <h2 class="expo-link-title">{{ exposition.title }}</h2>
-      <p class="expo-link-description">{{ exposition.description }}</p>
+      <div class="expo-link-hall">
+        Sala {{ number }}
+      </div>
+      <h2 class="expo-link-title">
+        {{ exposition.title }}
+      </h2>
+      <p class="expo-link-description">
+        {{ exposition.description }}
+      </p>
       <span :class="['expo-number', number % 2 === 0 ? 'expo-number-right' : 'expo-number-left']">0{{ number }}</span>
-    </a>
+    </nuxt-link>
   </div>
 </template>
 

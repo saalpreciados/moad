@@ -6,7 +6,7 @@ const expositions = [
     title: 'Aerial Trams',
     img: aerialTrams,
     description: 'Elvin Aliyev',
-    url: ''
+    url: 'expo'
   },
   {
     title: 'Untitled 1',

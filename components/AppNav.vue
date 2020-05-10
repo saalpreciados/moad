@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="md" type="light" fixed="top">
-    <b-navbar-brand to="/">
+    <b-navbar-brand to="/" @mousedown.prevent>
       <logo version="symbol" subtitled />
     </b-navbar-brand>
 
@@ -33,13 +33,13 @@
 
     <b-collapse v-if="!showModal && !showMap" id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item to="/expo">
+        <b-nav-item to="/expo" @mousedown.prevent>
           Exposició
         </b-nav-item>
-        <b-nav-item to="/info">
+        <b-nav-item to="/info" @mousedown.prevent>
           Recepció
         </b-nav-item>
-        <b-nav-item to="/artists">
+        <b-nav-item to="/artists" @mousedown.prevent>
           Artistes
         </b-nav-item>
       </b-navbar-nav>
@@ -90,6 +90,14 @@ export default {
 
         &::after {
           display: none;
+        }
+
+        &::after {
+          display: none;
+        }
+
+        &:hover, &:active {
+          color: $primary !important;
         }
       }
     }
@@ -170,4 +178,5 @@ export default {
       }
     }
   }
+
 </style>

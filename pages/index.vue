@@ -20,6 +20,11 @@ export default {
     ExpoLink
   },
 
+  transition: {
+    name: 'index',
+    mode: 'out-in'
+  },
+
   data () {
     return {
       expositions
@@ -29,5 +34,17 @@ export default {
 </script>
 
 <style>
+.index-enter-active, .index-leave-active {
+  transition: .5s ease-out;
+}
 
+.index-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.index-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
 </style>

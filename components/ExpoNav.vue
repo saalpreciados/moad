@@ -1,17 +1,17 @@
 <template>
   <div v-if="!showModal" class="expo-nav">
-    <button id="progress-bar" class="expo-nav-progress button-def" :style="progressBarLength" @click="toggleMap()" />
+    <button id="progress-bar" class="expo-nav-progress button-def" :style="progressBarLength" @click="toggleMap()" @mousedown.prevent />
     <b-tooltip target="progress-bar" triggers="hover" offset="10000px" custom-class="tooltip-moad">
       Obrir Mapa
     </b-tooltip>
-    <button v-if="showControls" class="expo-nav-prev button" @click="prevSlide()">
-      ←
+    <button v-if="showControls" class="expo-nav-prev button" @click="prevSlide()" @mousedown.prevent>
+      <span>←</span>
     </button>
-    <button v-if="showControls" class="expo-nav-map d-lg-none d-xl-none button-def" @click="toggleMap()">
+    <button v-if="showControls" class="expo-nav-map d-lg-none d-xl-none button-def" @click="toggleMap()" @mousedown.prevent>
       Mapa
     </button>
-    <button v-if="showControls" class="expo-nav-next button" @click="nextSlide()">
-      →
+    <button v-if="showControls" class="expo-nav-next button" @click="nextSlide()" @mousedown.prevent>
+      <span>→</span>
     </button>
   </div>
 </template>
@@ -56,6 +56,10 @@ export default {
     toggleMap () {
       this.$store.commit('toggleMap')
     }
+  },
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   }
 }
 </script>
@@ -85,10 +89,30 @@ export default {
 
   &-next {
     right: 2.25rem;
+
+    &:hover {
+      span {
+        display: block;
+        animation-name: slide-fade-right;
+        animation-duration: 1.25s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+      }
+    }
   }
 
   &-prev {
     left: 2.25rem;
+
+    &:hover {
+      span {
+        display: block;
+        animation-name: slide-fade-left;
+        animation-duration: 1.25s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+      }
+    }
   }
 }
 
@@ -118,4 +142,34 @@ export default {
     }
   }
 }
+
+@keyframes slide-fade-right {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    30% {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    31% {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-fade-left {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    44% {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    45% {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+  }
 </style>

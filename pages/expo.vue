@@ -45,19 +45,16 @@ export default {
     currentSlide (newslide, oldslide) {
       this.$store.commit('changeCurrentArt', { art: expo1[this.currentSlide].title, author: expo1[this.currentSlide].author })
     }
+  },
+  transition: {
+    name: 'expo',
+    mode: 'out-in'
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../sass/variables';
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
 
 .expo-wrapper {
   display: grid;
@@ -72,5 +69,19 @@ export default {
     margin: 0;
     place-items: center end;
   }
+}
+
+.expo-enter-active, .expo-leave-active {
+  transition: .5s ease-out;
+}
+
+.expo-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.expo-leave-to {
+  opacity: 0;
+  transform: scale(1.9);
 }
 </style>

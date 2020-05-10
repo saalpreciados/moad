@@ -30,6 +30,8 @@ $border-radius-xl: 5rem;
 
 // Navbar
 $navbar-height: 4rem;
+$navbar-inverse-link-color: $dark;
+$navbar-inverse-link-hover-color: $primary;
 
 // Boostrap variables and functions
 @import "bootstrap/scss/_functions";
