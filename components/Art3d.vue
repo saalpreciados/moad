@@ -8,7 +8,18 @@
           enableZoom,
           enableRotate,
         }"
+        @on-load="onLoad"
       />
+      <client-only>
+        <Lottie
+          v-show="loading"
+          class-name="loading-icon"
+          renderer="svg"
+          :loop="true"
+          :autoplay="true"
+          :animation-data="loadingIcon"
+        />
+      </client-only>
     </div>
     <div v-if="showModal" class="art-modal">
       <div class="model-wrapper-modal">
@@ -31,8 +42,15 @@
 </template>
 
 <script>
+import Lottie from 'vue-lottie-web'
+import loadingIcon from '../assets/icons/loading.json'
+
 export default {
   name: 'Art3d',
+
+  components: {
+    Lottie
+  },
   props: {
     src: {
       type: String,
@@ -43,7 +61,9 @@ export default {
     return {
       enablePan: false,
       enableZoom: false,
-      enableRotate: false
+      enableRotate: false,
+      loading: true,
+      loadingIcon
     }
   },
   computed: {
@@ -54,6 +74,9 @@ export default {
   methods: {
     toggleModal () {
       this.$store.commit('toggleModal')
+    },
+    onLoad () {
+      this.loading = false
     }
   }
 }
@@ -81,6 +104,17 @@ export default {
     width: 90vw;
     height: 90vh;
   }
+}
+
+.loading-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 3rem;
+  height: 3rem;
 }
 
 .art-src {

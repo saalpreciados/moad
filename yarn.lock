@@ -5527,6 +5527,11 @@ loose-envify@^1.0.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
+lottie-web@^5.5.2:
+  version "5.6.10"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.6.10.tgz#9c2959df12976f49637f563dcc96db2078010b4d"
+  integrity sha512-ucTzaiBJOMm56/K7Wqjajyh7qXlonHKB3+b5fHvhSiz+jOrXt6QDNKAinI3qdw/zvvYHKzXvFMy5SgOXbOJ5ng==
+
 loud-rejection@^1.0.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/loud-rejection/-/loud-rejection-1.6.0.tgz#5b46f80147edee578870f086d04821cf998e551f"
@@ -9102,6 +9107,14 @@ vue-loader@^15.8.3:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-lottie-web@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/vue-lottie-web/-/vue-lottie-web-0.0.3.tgz#635fc61aa8415a73f1759f6f5c93adc30cb3af5d"
+  integrity sha512-4c215EB+Gonb8U+trwAPRXmQapkoUMkKz1H8fBNHf+waBRVsNUkPzN3PLw7wxpmImItdvbuKVA2baufA+mOhCw==
+  dependencies:
+    lottie-web "^5.5.2"
+    vue "^2.5.11"
+
 vue-meta@^2.3.1:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/vue-meta/-/vue-meta-2.3.2.tgz#d87a456582da040ff7bc9304701cca47ac36ee1e"
@@ -9159,7 +9172,7 @@ vue-zoomer@^0.3.6:
   resolved "https://registry.yarnpkg.com/vue-zoomer/-/vue-zoomer-0.3.6.tgz#4203cd64dc7050fed3042ee193d3d71901e352f9"
   integrity sha512-MzouVy32Lbwg6+5XzBy/BIRKxg3ulyi3TGpn3WaVFxLlomoxsDx81Q6i5JF+o7sP3dGRq+PJzjuymJcVCJoRDA==
 
-vue@^2.6.11:
+vue@^2.5.11, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==

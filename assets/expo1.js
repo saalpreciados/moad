@@ -6,6 +6,15 @@ import untitled1 from '~/assets/art/motocross-saito/untitled-1.png'
 
 const expo1 = [
   {
+    title: 'Test',
+    src: {
+      type: '3d',
+      url: '../models/test.obj'
+    },
+    author: 'Test',
+    tags: ''
+  },
+  {
     html: '<h1>Commodo consequat.</h1>',
     title: 'Whatever title',
     description: '',
@@ -27,15 +36,6 @@ const expo1 = [
       type: 'video',
       url: '../video/mov_bbb.mp4',
       thumbnail: untitled1
-    },
-    author: 'Test',
-    tags: ''
-  },
-  {
-    title: 'Test',
-    src: {
-      type: '3d',
-      url: '../models/test.obj'
     },
     author: 'Test',
     tags: ''

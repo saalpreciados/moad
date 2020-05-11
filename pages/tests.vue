@@ -1,38 +1,29 @@
 <template>
   <div>
-    <image-loader
-      src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?fit=crop&crop=entropy&w=3456&h=2304"
-      placeholder="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=100"
-      width="864px"
-      height="476px"
-    />
+    <client-only>
+      <Lottie
+        class-name="loading-icon"
+        renderer="svg"
+        :loop="true"
+        :autoplay="true"
+        :animation-data="loadingIcon"
+      />
+    </client-only>
   </div>
 </template>
 
 <script>
-import expo1 from '../assets/expo1.js'
+import Lottie from 'vue-lottie-web'
+import loadingIcon from '../assets/icons/loading.json'
 
 export default {
+  components: {
+    Lottie
+  },
+
   data () {
     return {
-      expo1,
-      showModal: false
-    }
-  },
-  computed: {
-    expoLength () {
-      return this.expo1.length
-    },
-    currentSlide () {
-      return this.$store.state.currentSlide
-    },
-    filteredExpo () {
-      return expo1.filter(this.removeEmpty)
-    }
-  },
-  methods: {
-    removeEmpty (obj) {
-      return Object.prototype.hasOwnProperty.call(obj, 'src')
+      loadingIcon
     }
   }
 }

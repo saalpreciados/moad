@@ -1,7 +1,7 @@
 <template>
   <div class="expo">
     <nuxt-link class="expo-link container" :to="exposition.url">
-      <img :src="exposition.img" alt="Untitled 1">
+      <img :srcset="exposition.img.srcSet" alt="Untitled 1">
       <div class="expo-link-hall">
         Sala {{ number }}
       </div>
