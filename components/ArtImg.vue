@@ -47,9 +47,6 @@ export default {
       return this.$store.state.showModal
     }
   },
-  mounted () {
-    console.log(this.src.images)
-  },
   methods: {
     toggleModal () {
       this.$store.commit('toggleModal')

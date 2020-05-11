@@ -4,6 +4,9 @@
     <art-3d v-if="src.type === '3d'" :src="src.url" />
     <art-video v-if="src.type === 'video'" :src="src.url" />
     <art-html v-if="src.type === 'html'" :src="src" />
+    <div v-if="src.type !== 'video'" class="expand-info">
+      Expandir <i class="las la-expand" />
+    </div>
   </div>
 </template>
 
@@ -41,6 +44,35 @@ export default {
 .expo-slide-art {
   align-self: center;
   justify-self: center;
+  position: relative;
+
+  .expand-info {
+    pointer-events: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s ease-in-out;
+    color: $black;
+    display: flex;
+    background: $white;
+    padding: .25rem;
+    font-size: .9rem;
+    align-items: flex-end;
+
+    i {
+      font-size: 1.25rem;
+      margin-left: .25rem;
+    }
+  }
+
+  &:hover {
+    .expand-info {
+      visibility: initial;
+      opacity: 1;
+    }
+  }
 }
 
 @include media-breakpoint-down(md) {
