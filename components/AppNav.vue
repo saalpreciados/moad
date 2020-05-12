@@ -39,8 +39,8 @@
         <b-nav-item to="/info" @mousedown.prevent>
           Recepció
         </b-nav-item>
-        <b-nav-item to="/artists" @mousedown.prevent>
-          Artistes
+        <b-nav-item to="/tests" @mousedown.prevent>
+          tests
         </b-nav-item>
       </b-navbar-nav>
     </b-collapse>

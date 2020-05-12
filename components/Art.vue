@@ -1,6 +1,6 @@
 <template>
   <div :class="[showModal ? 'expo-slide-art--modal-open' : 'expo-slide-art']">
-    <art-img v-if="src.type === 'img'" :src="src.url" />
+    <image-dialog v-if="src.type === 'img'" :src="src.url" />
     <art-3d v-if="src.type === '3d'" :src="src.url" />
     <art-video v-if="src.type === 'video'" :src="src.url" />
     <art-html v-if="src.type === 'html'" :src="src" />
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import ArtImg from './ArtImg'
+import ImageDialog from './ImageDialog'
 import Art3d from './Art3d'
 import ArtVideo from './ArtVideo'
 import ArtHtml from './ArtHtml'
@@ -19,7 +19,7 @@ import ArtHtml from './ArtHtml'
 export default {
   name: 'Art',
   components: {
-    ArtImg,
+    ImageDialog,
     Art3d,
     ArtVideo,
     ArtHtml

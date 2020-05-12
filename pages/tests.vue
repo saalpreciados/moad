@@ -1,75 +1,54 @@
 <template>
   <div>
-    <client-only>
-      <Lottie
-        class-name="loading-icon"
-        renderer="svg"
-        :loop="true"
-        :autoplay="true"
-        :animation-data="loadingIcon"
-      />
-    </client-only>
+    <image-dialog thumb="https://via.placeholder.com/315x200" full="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/81809490807943.5e20b9190a4b2.jpg" :full-width="945" :full-height="600" />
   </div>
 </template>
 
 <script>
-import Lottie from 'vue-lottie-web'
-import loadingIcon from '../assets/icons/loading.json'
+import ImageDialog from '../components/ImageDialog'
 
 export default {
   components: {
-    Lottie
-  },
-
-  data () {
-    return {
-      loadingIcon
-    }
+    ImageDialog
   }
 }
+
 </script>
 
 <style lang="scss" scoped>
 @import '../sass/variables';
 
-.expo-wrapper {
-  height: 92vh;
-  margin: 0;
-  padding: 0 2rem;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.expo-map {
-  display: grid;
-  grid-template-columns: repeat( auto-fit, 250px);
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+body {
+  font-size: 16px;
+  background-color: #a74242;
 }
 
-.expo-map-item {
-  img {
-    object-fit: cover;
-    height: 250px;
-    width: 250px;
-  }
-
-  a {
-    text-decoration: none;
-    color: $dark;
-  }
+.card {
+  margin: 50px auto;
+  padding: 20px;
+  width: 355px;
+  background-color: #fff;
+  box-shadow: 5px 5px 30px rgba(84, 29, 29, 0.4);
 
   &-title {
-    font-size: 1.2rem;
-    margin: 1rem 0 0.25rem 0;
+    color: #541d1d;
+    font-size: 22px;
+  }
+
+  &-text {
+    margin-top: 8px;
+    line-height: 1.3;
+  }
+
+  &-image {
+    margin-top: 10px;
   }
 }
 
-@include media-breakpoint-down(md) {
-  .expo-wrapper {
-    height: 90vh;
-    margin: 0;
-    place-items: center end;
-  }
-}
 </style>
