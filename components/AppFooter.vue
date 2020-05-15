@@ -52,8 +52,15 @@ export default {
   }
 
   @include media-breakpoint-down(md) {
-    .moad-footer-container {
-      flex-direction: column;
+    .moad-footer {
+      &-container {
+        flex-direction: column;
+      }
+
+      .footer-info {
+        margin-left: 0;
+        margin-top: 1rem
+      }
     }
   }
 </style>
