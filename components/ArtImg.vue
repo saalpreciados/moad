@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div class="art-img">
     <img
       v-if="showModal == false"
       :srcset="src.srcSet"
       alt="Untitled 1"
-      class="art-src"
       @click="toggleModal()"
     >
     <div v-if="showModal" class="art-modal" @click="toggleModal()">
@@ -28,8 +27,6 @@
         </button>
       </div>
     </div>
-    </imgage-loader>
-    </image-loader>
   </div>
 </template>
 
@@ -58,11 +55,18 @@ export default {
 <style lang="scss" scoped>
 @import '../sass/variables';
 
-.art-src {
-  max-height: 70vh;
-  max-width: 50vw;
+.art-img {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 
   img {
+    max-height: calc(100vh - 10rem);
+    max-width: 90vw;
+    height: auto;
+    width: auto;
     object-fit: contain;
   }
 
@@ -114,14 +118,15 @@ export default {
 }
 
 @include media-breakpoint-down(md) {
-  .art-src {
-  max-height: 70vh;
-  max-width: 55vw;
-
-  &:hover {
-    cursor: pointer;
+  .art-img {
+    &:hover {
+      cursor: pointer;
+    }
   }
-}
+
+  .art-img {
+    position: fixed;
+  }
 
   .art-modal {
     &-controls-lg {

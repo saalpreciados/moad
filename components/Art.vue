@@ -42,6 +42,8 @@ export default {
 @import '../sass/variables';
 
 .expo-slide-art {
+  height: 100%;
+  width: 100%;
   align-self: center;
   justify-self: center;
   position: relative;
@@ -77,23 +79,11 @@ export default {
 
 @include media-breakpoint-down(md) {
 .expo-slide-art {
-    position: fixed;
     grid-area: art;
-    height: 70vh;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    &--modal-open {
-      align-self: center;
-      justify-self: center;
-
-      img {
-        max-height: 70vh;
-        max-width: 55vw;
-      }
-    }
+    z-index: -1000;
   }
 }
 

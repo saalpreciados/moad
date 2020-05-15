@@ -63,6 +63,7 @@ export default {
 .expo-slide {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  grid-template-rows: calc(100vh - 10rem);
   gap: 1.5rem;
   margin: 0 8rem;
 
@@ -104,7 +105,7 @@ export default {
 .expo-slide {
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: 70vh 1fr;
+grid-template-rows: 1.2fr 1fr;
 grid-template-areas: "art"
                     "info";
 gap: 1.5rem;

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <img v-if="showModal == false" :src="src.thumbnail" alt="Untitled 1" class="art-src" @click="toggleModal()">
+  <div class="art-src">
+    <img v-if="showModal == false" :src="src.thumbnail" alt="Untitled 1" @click="toggleModal()">
     <div v-if="showModal" class="art-modal" @click="toggleModal()">
       <embed :src="src.url" class="art-html">
       <div class="art-modal-controls-lg" @click.stop />
@@ -39,8 +39,19 @@ export default {
 @import '../sass/variables';
 
 .art-src {
-  max-height: 70vh;
-  max-width: 55vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+  }
 
   &:hover {
     cursor: pointer;
