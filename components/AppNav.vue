@@ -105,7 +105,7 @@ export default {
     .navbar-brand {
       svg {
         height: 26px;
-        width: 12rem;
+        width: 8rem;
       }
 
       &::after {
@@ -167,11 +167,11 @@ export default {
         &[aria-expanded="true"] {
           .navbar-toggler-icon {
             &::after {
-              transform: rotate(45deg) translateY(-9px);
+              transform: rotate(45deg) translateY(-10px);
             }
 
             &::before {
-              transform: rotate(-45deg) translateY(8px);
+              transform: rotate(-45deg) translateY(9px);
             }
           }
         }

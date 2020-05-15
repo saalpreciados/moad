@@ -320,8 +320,6 @@
       v-if="version === 'symbol'"
       x="0px"
       y="0px"
-      width="371.1px"
-      height="80.3px"
       viewBox="0 0 371.1 80.3"
     >
       <g>
