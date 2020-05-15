@@ -36,6 +36,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../sass/variables';
+
   .welcome {
   display: grid;
   grid-template-rows: 0.85fr 0.15fr;
@@ -47,6 +49,15 @@ export default {
     color: blue;
     max-width: 1000px;
     line-height: 1.2;
+    padding: 0 1rem;
+  }
+}
+
+@include media-breakpoint-down (md) {
+  .welcome {
+    &-text {
+      font-size: 3.25rem;
+    }
   }
 }
 </style>

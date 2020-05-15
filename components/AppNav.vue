@@ -36,8 +36,8 @@
         <b-nav-item to="/expo" @mousedown.prevent>
           Exposició
         </b-nav-item>
-        <b-nav-item to="/info" @mousedown.prevent>
-          Recepció
+        <b-nav-item to="/manifest" @mousedown.prevent>
+          Manifest
         </b-nav-item>
         <b-nav-item to="/artists" @mousedown.prevent>
           Artistes
