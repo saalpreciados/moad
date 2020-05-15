@@ -29,7 +29,9 @@ export default {
     return {
       expositions
     }
-  }
+  },
+
+  layout: 'default-footer'
 }
 </script>
 

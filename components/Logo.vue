@@ -494,7 +494,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.st0 {
-  fill:#1D1D1B;
-}
+
 </style>
