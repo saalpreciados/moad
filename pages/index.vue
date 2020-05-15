@@ -1,5 +1,6 @@
 <template>
   <div>
+    <moad-welcome />
     <div class="container">
       <h1 class="title">
         Exposicions
@@ -14,10 +15,12 @@
 <script>
 import expositions from '../assets/expositions.js'
 import ExpoLink from '../components/ExpoLink'
+import MoadWelcome from '../components/MoadWelcome'
 
 export default {
   components: {
-    ExpoLink
+    ExpoLink,
+    MoadWelcome
   },
 
   transition: {
@@ -35,7 +38,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .index-enter-active, .index-leave-active {
   transition: .5s ease-out;
 }
