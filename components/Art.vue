@@ -38,15 +38,21 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../sass/variables';
 
 .expo-slide-art {
   height: 100%;
   width: 100%;
+  max-height: 80vh;
   align-self: center;
   justify-self: center;
   position: relative;
+
+  img {
+    max-width: calc(100vw - 15rem);
+    height: $art-height;
+  }
 
   .expand-info {
     pointer-events: none;

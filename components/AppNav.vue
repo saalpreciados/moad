@@ -81,11 +81,10 @@ export default {
 
   .navbar-light {
     background: $light;
-    border-bottom: 0 $dark solid;
 
     .navbar-nav {
       a.nav-link {
-        font-size: 1.25rem;
+        font-size: 1rem;
         color: $dark;
 
         &::after {
@@ -103,9 +102,10 @@ export default {
     }
 
     .navbar-brand {
+
       svg {
-        height: 26px;
-        width: 8rem;
+        height: 24px;
+        width: 7rem;
       }
 
       &::after {

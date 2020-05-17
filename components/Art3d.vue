@@ -86,8 +86,8 @@ export default {
 @import '../sass/variables';
 
 .art-3d {
-  height: 70vh;
-  width: 55vw;
+  height: 100%;
+  width: 100%;
 }
 
 .model-wrapper {
@@ -118,8 +118,8 @@ export default {
 }
 
 .art-src {
-  height: 70vh;
-  width: 55vw;
+  height: 100%;
+  width: 100%;
 
   &:hover {
     cursor: pointer;
@@ -171,8 +171,9 @@ export default {
 
 @include media-breakpoint-down(md) {
 .art-3d {
-  height: 70vh;
-  width: 90vw;
+  .model-wrapper {
+    position: fixed;
+  }
 }
 
 .art-src {

@@ -31,15 +31,15 @@ export default {
 @import '../sass/variables';
 
 .art-src {
-  min-width: 50vw;
-  max-width: 100%;
-  max-height: 70vh;
+  width: 100%;
+  height: $art-height;
 }
 
 @include media-breakpoint-down(md) {
   .art-src {
-  width: 98vw;
-}
+    width: 100vw;
+    position: fixed;
+  }
 }
 
 </style>

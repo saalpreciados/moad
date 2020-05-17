@@ -46,11 +46,8 @@ export default {
   width: 100%;
 
   img {
-    max-height: 100%;
-    max-width: 100%;
-    position: fixed;
-    height: auto;
-    width: auto;
+    max-width: calc(100vw - 18rem);
+    height: $art-height;
     object-fit: contain;
   }
 
@@ -102,6 +99,7 @@ export default {
 
   img {
     max-width: 100vw;
+    position: fixed;
   }
 
   &:hover {

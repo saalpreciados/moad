@@ -63,15 +63,13 @@ export default {
   width: 100%;
 
   img {
-    max-height: calc(100vh - 10rem);
-    max-width: 90vw;
-    height: auto;
-    width: auto;
+    max-width: calc(100vw - 18rem);
+    height: $art-height;
     object-fit: contain;
   }
 
   &:hover {
-    cursor: pointer;
+    cursor: zoom-in;
   }
 }
 

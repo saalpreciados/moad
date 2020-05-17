@@ -58,8 +58,8 @@ export default {
 
 .expo-wrapper {
   display: grid;
-  height: 92vh;
-  margin: 0;
+  min-height: calc(100vh - 8rem);
+  margin: 0 0 4rem 0;
   place-items: center center;
 }
 

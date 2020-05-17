@@ -33,7 +33,7 @@ export default {
       return this.$store.state.currentSlide
     },
     progressBarLength () {
-      return 'width:' + ((this.currentSlide + 1) / this.expoLength) * 100 + '%'
+      return 'width:' + ((this.currentSlide) / this.expoLength) * 100 + '%'
     },
     showModal () {
       return this.$store.state.showModal
