@@ -86,7 +86,6 @@ export default {
     position: absolute;
     font-family: soulcraft;
     mix-blend-mode: multiply;
-    bottom: 0;
     z-index: 10;
     color: $primary;
     font-size: 20rem;
@@ -94,11 +93,13 @@ export default {
     transform: rotate(-90deg);
 
     &-left {
-      left: -10rem;
+      left: -5rem;
+      bottom: 4rem;
     }
 
     &-right {
       right: -8rem;
+      bottom: 0;
     }
   }
 }
