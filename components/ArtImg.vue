@@ -119,6 +119,12 @@ export default {
 
 @include media-breakpoint-down(md) {
   .art-img {
+    align-items: center;
+
+    img {
+      max-width: 100vw;
+    }
+
     &:hover {
       cursor: pointer;
     }
