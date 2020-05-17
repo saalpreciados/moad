@@ -1,6 +1,6 @@
 <template>
   <div class="art-src">
-    <img v-if="showModal == false" :src="src.thumbnail" alt="Untitled 1" @click="toggleModal()">
+    <img v-if="showModal == false" :srcset="src.thumbnail.srcSet" alt="Untitled 1" @click="toggleModal()">
     <div v-if="showModal" class="art-modal" @click="toggleModal()">
       <embed :src="src.url" class="art-html">
       <div class="art-modal-controls-lg" @click.stop />
@@ -48,6 +48,7 @@ export default {
   img {
     max-height: 100%;
     max-width: 100%;
+    position: fixed;
     height: auto;
     width: auto;
     object-fit: contain;
@@ -97,8 +98,11 @@ export default {
 
 @include media-breakpoint-down(md) {
   .art-src {
-  max-height: 70vh;
-  max-width: 55vw;
+    align-items: center;
+
+  img {
+    max-width: 100vw;
+  }
 
   &:hover {
     cursor: pointer;
