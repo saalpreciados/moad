@@ -66,6 +66,7 @@ export default {
   grid-template-rows: $art-height 1fr;
   gap: 1.5rem;
   margin: 0 8rem;
+  justify-items: center;
 
   &-info {
     align-self: end;
@@ -121,7 +122,6 @@ export default {
 .expo-slide {
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: 1.2fr 1fr;
 grid-template-areas: "art"
                     "info";
 gap: 1.5rem;
