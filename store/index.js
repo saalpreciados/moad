@@ -11,6 +11,12 @@ export const mutations = {
     state.showModal = !state.showModal
   },
 
+  resetExpo (state) {
+    state.showModal = false
+    state.showMap = false
+    state.currentSlide = 0
+  },
+
   toggleMap (state) {
     state.showMap = !state.showMap
   },

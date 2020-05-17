@@ -34,6 +34,10 @@ export default {
     }
   },
 
+  beforeCreate () {
+    this.$store.commit('resetExpo')
+  },
+
   layout: 'default-footer'
 }
 </script>
