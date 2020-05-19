@@ -57,16 +57,6 @@ export default {
 }
 
 .art-modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: white;
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-left: 1rem;
-  z-index: 100;
 
   .art-html {
     overflow-y: scroll;
@@ -76,21 +66,6 @@ export default {
     width: 100%;
   }
 
-  &-controls-lg {
-    width: 100%;
-    position: fixed;
-    display: flex;
-    height: 4rem;
-    justify-content: center;
-    align-items: center;
-    left: 0;
-    bottom: 0;
-    background: white;
-  }
-
-  &-controls-md {
-    display: none;
-  }
 }
 
 @include media-breakpoint-down(md) {
@@ -106,28 +81,5 @@ export default {
     cursor: pointer;
   }
 }
-
-  .art-modal {
-    &-controls-lg {
-      display: none;
-    }
-
-    &-controls-md {
-      width: 100%;
-      position: fixed;
-      display: flex;
-      height: 6rem;
-      justify-content: center;
-      align-items: center;
-      left: 0;
-      bottom: 0;
-      background: white;
-      text-align: center;
-
-      .button {
-        padding-bottom: 4rem;
-      }
-    }
-  }
 }
 </style>

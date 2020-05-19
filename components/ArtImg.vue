@@ -74,18 +74,6 @@ export default {
 }
 
 .art-modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: white;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 0 2rem;
-  z-index: 100;
-
   .vue-zoomer {
     overflow: initial;
     align-self: center;
@@ -98,18 +86,6 @@ export default {
     }
   }
 
-  &-controls-lg {
-    width: 100%;
-    position: fixed;
-    display: flex;
-    height: 4rem;
-    justify-content: center;
-    align-items: center;
-    left: 0;
-    bottom: 0;
-    background: white;
-  }
-
   &-controls-md {
     display: none;
   }
@@ -118,6 +94,7 @@ export default {
 @include media-breakpoint-down(md) {
   .art-img {
     align-items: center;
+    position: fixed;
 
     img {
       max-width: 100vw;
@@ -128,30 +105,9 @@ export default {
     }
   }
 
-  .art-img {
-    position: fixed;
-  }
-
-  .art-modal {
-    &-controls-lg {
-      display: none;
-    }
-
-    &-controls-md {
-      width: 100%;
-      position: fixed;
-      display: flex;
-      height: 6rem;
-      justify-content: center;
-      align-items: center;
-      left: 0;
-      bottom: 0;
-      background: white;
-      text-align: center;
-
-      .button {
-        padding-bottom: 4rem;
-      }
+  .expo-slide-art--modal-open {
+    .art-img {
+      position: inherit;
     }
   }
 }

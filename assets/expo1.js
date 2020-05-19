@@ -6,6 +6,16 @@ import untitled1 from '~/assets/art/motocross-saito/untitled-1.png'
 
 const expo1 = [
   {
+    title: 'Aerial Trams',
+    src: {
+      type: 'img',
+      url: aerialTrams,
+      thumbnail: aerialTrams
+    },
+    author: 'Elvin Aliyev',
+    tags: ''
+  },
+  {
     title: 'Test',
     src: {
       type: '3d',
@@ -38,16 +48,6 @@ const expo1 = [
       thumbnail: untitled1
     },
     author: 'Test',
-    tags: ''
-  },
-  {
-    title: 'Aerial Trams',
-    src: {
-      type: 'img',
-      url: aerialTrams,
-      thumbnail: aerialTrams
-    },
-    author: 'Elvin Aliyev',
     tags: ''
   },
   {

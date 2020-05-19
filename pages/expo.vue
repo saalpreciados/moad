@@ -3,7 +3,7 @@
     <div v-if="!showMap" class="expo-wrapper">
       <transition name="fade" mode="out-in">
         <template v-for="(expo, i) in expo1">
-          <expo-slide v-if="i == currentSlide" :key="i" :slide="expo1[currentSlide]" />
+          <expo-slide v-if="i == currentSlide" :key="i" :slide="expo1[currentSlide-1]" />
         </template>
       </transition>
     </div>

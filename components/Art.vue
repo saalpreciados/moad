@@ -4,9 +4,9 @@
     <art-3d v-if="src.type === '3d'" :src="src.url" />
     <art-video v-if="src.type === 'video'" :src="src.url" />
     <art-html v-if="src.type === 'html'" :src="src" />
-    <div v-if="src.type !== 'video'" class="expand-info">
+    <!-- <div v-if="src.type !== 'video'" class="expand-info">
       Expandir <i class="las la-expand" />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../sass/variables';
 
 .expo-slide-art {
@@ -89,7 +89,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: -1000;
   }
 }
 

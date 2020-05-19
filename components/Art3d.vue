@@ -12,12 +12,13 @@
       />
       <client-only>
         <Lottie
-          v-show="loading"
+          v-if="loading"
           class-name="loading-icon"
           renderer="svg"
           :loop="true"
           :autoplay="true"
           :animation-data="loadingIcon"
+          @getLottieInstance="getLottieInstance"
         />
       </client-only>
     </div>
@@ -62,8 +63,9 @@ export default {
       enablePan: false,
       enableZoom: false,
       enableRotate: false,
-      loading: true,
-      loadingIcon
+      loading: false,
+      loadingIcon,
+      lottieInstance: ''
     }
   },
   computed: {
@@ -77,6 +79,13 @@ export default {
     },
     onLoad () {
       this.loading = false
+      this.lottieStop()
+    },
+    getLottieInstance (lottieInstance) {
+      this.lottieInstance = lottieInstance
+    },
+    lottieStop () {
+      this.lottieInstance && this.lottieInstance.stop()
     }
   }
 }
@@ -92,8 +101,7 @@ export default {
 
 .model-wrapper {
   width: 100%;
-  height: 100%;
-  float: left;
+  height: $art-height;
   position: relative;
 
   &:hover {
@@ -126,84 +134,16 @@ export default {
   }
 }
 
-.art-modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: white;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 0 2rem;
-  z-index: 100;
-  align-items: center;
-  justify-items: center;
-
-  &-controls-lg {
-    width: 100%;
-    position: fixed;
-    display: flex;
-    height: 4rem;
-    justify-content: center;
-    align-items: center;
-    left: 0;
-    bottom: 0;
-    background: white;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-      margin-right: 1.5rem;
-    }
-
-    i {
-      font-size: 1.25rem;
-    }
-  }
-
-  &-controls-md {
-    display: none;
-  }
-}
-
 @include media-breakpoint-down(md) {
-.art-3d {
-  .model-wrapper {
-    position: fixed;
-  }
-}
-
-.art-src {
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-  .art-modal {
-    padding: 0 1rem;
-
-    &-controls-lg {
-      display: none;
-    }
-
-    &-controls-md {
-      width: 100%;
+  .art-3d {
+    .model-wrapper {
       position: fixed;
-      display: flex;
-      height: 6rem;
-      justify-content: center;
-      align-items: center;
-      left: 0;
-      bottom: 0;
-      background: white;
-      text-align: center;
+    }
+  }
 
-      .button {
-        padding-bottom: 4rem;
-      }
+  .art-src {
+    &:hover {
+      cursor: pointer;
     }
   }
 }

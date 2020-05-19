@@ -1,29 +1,52 @@
 <template>
-  <div>
-    <client-only>
-      <Lottie
-        class-name="loading-icon"
-        renderer="svg"
-        :loop="true"
-        :autoplay="true"
-        :animation-data="loadingIcon"
-      />
-    </client-only>
+  <div class="art-img">
+    <img
+      v-if="showModal == false"
+      src="../assets/art/elvin-aliyev/appointment.jpg"
+      alt="Untitled 1"
+      @click="toggleModal()"
+    >
+    <div v-if="showModal" class="art-modal" @click="toggleModal()">
+      <v-zoomer ref="zoomer">
+        <img
+          src="../assets/art/elvin-aliyev/stairs.jpg"
+          @click.stop
+        >
+      </v-zoomer>
+      <div class="art-modal-controls-lg" @click.stop>
+        <button class="button button-sm" @click="$refs.zoomer.zoomIn()">
+          <i class="las la-search-plus" />
+        </button>
+        <button class="button button-sm" @click="$refs.zoomer.zoomOut()">
+          <i class="las la-search-minus" />
+        </button>
+      </div>
+      <div v-if="showModal" class="art-modal-controls-md" @click.stop>
+        <button class="button" @click="toggleModal()">
+          <i class="las la-times" />
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Lottie from 'vue-lottie-web'
-import loadingIcon from '../assets/icons/loading.json'
-
 export default {
-  components: {
-    Lottie
+  name: 'ArtImg',
+  props: {
+    src: {
+      type: String,
+      default: ''
+    }
   },
-
-  data () {
-    return {
-      loadingIcon
+  computed: {
+    showModal () {
+      return this.$store.state.showModal
+    }
+  },
+  methods: {
+    toggleModal () {
+      this.$store.commit('toggleModal')
     }
   }
 }
@@ -32,44 +55,104 @@ export default {
 <style lang="scss" scoped>
 @import '../sass/variables';
 
-.expo-wrapper {
-  height: 92vh;
-  margin: 0;
-  padding: 0 2rem;
-}
+.art-img {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 
-.expo-map {
-  display: grid;
-  grid-template-columns: repeat( auto-fit, 250px);
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.expo-map-item {
   img {
-    object-fit: cover;
-    height: 250px;
-    width: 250px;
+    max-width: calc(100vw - 18rem);
+    height: $art-height;
+    object-fit: contain;
   }
 
-  a {
-    text-decoration: none;
-    color: $dark;
+  &:hover {
+    cursor: zoom-in;
+  }
+}
+
+.art-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: white;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 2rem;
+  z-index: 100;
+
+  .vue-zoomer {
+    overflow: initial;
+    align-self: center;
+    justify-self: center;
+
+    img {
+      cursor: move;
+      max-height: 90vh;
+      max-width: 100vw;
+    }
   }
 
-  &-title {
-    font-size: 1.2rem;
-    margin: 1rem 0 0.25rem 0;
+  &-controls-lg {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+    background: white;
+  }
+
+  &-controls-md {
+    display: none;
   }
 }
 
 @include media-breakpoint-down(md) {
-  .expo-wrapper {
-    height: 90vh;
-    margin: 0;
-    place-items: center end;
+  .art-img {
+    align-items: center;
+
+    img {
+      max-width: 100vw;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .art-img {
+    position: fixed;
+  }
+
+  .art-modal {
+    &-controls-lg {
+      display: none;
+    }
+
+    &-controls-md {
+      width: 100%;
+      position: fixed;
+      display: flex;
+      height: 6rem;
+      justify-content: center;
+      align-items: center;
+      left: 0;
+      bottom: 0;
+      background: white;
+      text-align: center;
+
+      .button {
+        padding-bottom: 4rem;
+      }
+    }
   }
 }
 </style>
