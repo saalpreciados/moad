@@ -27,7 +27,8 @@ const expo1 = [
     title: 'Test',
     src: {
       type: '3d',
-      url: '../models/test.obj'
+      url: '../models/test.obj',
+      thumbnail: aerialTrams
     },
     author: 'Test',
     tags: ''

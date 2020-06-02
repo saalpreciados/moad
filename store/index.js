@@ -7,8 +7,14 @@ export const state = () => ({
 })
 
 export const mutations = {
-  toggleModal (state) {
-    state.showModal = !state.showModal
+  toggleModal (state, payload) {
+    if (payload === open) {
+      state.showModal = true
+    } else if (payload === close) {
+      state.showModal = false
+    } else {
+      state.showModal = !state.showModal
+    }
   },
 
   resetExpo (state) {

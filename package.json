@@ -23,6 +23,7 @@
     "vue-lottie-web": "^0.0.3",
     "vue-zoomer": "^0.3.6",
     "vuex": "^3.1.3",
+    "vuex-router-sync": "^5.0.0",
     "webpack-obj-loader": "^1.0.4"
   },
   "devDependencies": {

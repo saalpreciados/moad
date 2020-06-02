@@ -1,6 +1,7 @@
 <template>
   <div>
     <expo-slide :slide="expo[slideNumber]" />
+    <nuxt-child :src="expo[slideNumber].src" />
   </div>
 </template>
 
@@ -25,6 +26,9 @@ export default {
     },
     currentSlide () {
       return this.$store.state.currentSlide
+    },
+    showModal () {
+      return this.$store.state.showModal
     }
   },
 

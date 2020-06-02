@@ -1,17 +1,32 @@
 <template>
   <div class="art-img">
-    <nuxt-link :to="{ path: 'modal'}" append>
-      <img
-        :srcset="src.thumbnail.srcSet"
-        alt="Untitled 1"
-      >
-    </nuxt-link>
+    <div class="art-modal" @click="toggleModal()">
+      <v-zoomer ref="zoomer">
+        <img
+          :src="src.images[src.images.length-1].path"
+          @click.stop
+        >
+      </v-zoomer>
+      <div class="art-modal-controls-lg" @click.stop>
+        <button class="button button-sm" @click="$refs.zoomer.zoomIn()">
+          <i class="las la-search-plus" />
+        </button>
+        <button class="button button-sm" @click="$refs.zoomer.zoomOut()">
+          <i class="las la-search-minus" />
+        </button>
+      </div>
+      <div class="art-modal-controls-md" @click.stop>
+        <button class="button" @click="toggleModal()">
+          <i class="las la-times" />
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ArtImg',
+  name: 'ArtImgModal',
   props: {
     src: {
       type: Object,

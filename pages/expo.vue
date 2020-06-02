@@ -38,11 +38,21 @@ export default {
     },
     showMap () {
       return this.$store.state.showMap
+    },
+    route () {
+      return this.$store.state.route.path
     }
   },
   watch: {
     currentSlide (newslide, oldslide) {
       this.$store.commit('changeCurrentArt', { art: expo1[this.currentSlide].title, author: expo1[this.currentSlide].author })
+    },
+    route (from, to) {
+      if (from.endsWith('modal')) {
+        this.$store.commit('toggleModal', open)
+      } else {
+        this.$store.commit('toggleModal', close)
+      }
     }
   },
   transition: {

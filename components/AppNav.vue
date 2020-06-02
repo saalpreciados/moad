@@ -15,9 +15,9 @@
           {{ currentArt.author }}
         </div>
       </div>
-      <button class="button button-sm" @click="toggleModal()">
+      <nuxt-link class="button button-sm" :to="{ path: $store.state.route.from.fullPath }">
         <i class="las la-times" />
-      </button>
+      </nuxt-link>
     </div>
 
     <div v-if="showMap" class="nav-close-modal d-none d-md-flex">
