@@ -1,16 +1,16 @@
 <template>
-  <div v-if="!showModal" class="expo-nav">
-    <button id="progress-bar" class="expo-nav-progress button-def" :style="progressBarLength" @click="toggleMap()" @mousedown.prevent />
+  <div class="expo-nav">
+    <nuxt-link id="progress-bar" class="expo-nav-progress button-def" :style="progressBarLength" to="map" @mousedown.prevent />
     <b-tooltip target="progress-bar" triggers="hover" offset="10000px" custom-class="tooltip-moad">
       Obrir Mapa
     </b-tooltip>
-    <button v-if="showControls" class="expo-nav-prev button" @click="prevSlide()" @mousedown.prevent>
+    <button v-if="showControls && prevSlideExists" class="expo-nav-prev button" @click="prevSlide()" @mousedown.prevent>
       <span>←</span>
     </button>
-    <button v-if="showControls" class="expo-nav-map d-lg-none d-xl-none button-def" @click="toggleMap()" @mousedown.prevent>
+    <nuxt-link v-if="showControls" class="expo-nav-map d-lg-none d-xl-none button-def" to="map" @mousedown.prevent>
       Mapa
-    </button>
-    <button v-if="showControls" class="expo-nav-next button" @click="nextSlide()" @mousedown.prevent>
+    </nuxt-link>
+    <button v-if="showControls && nextSlideExists" class="expo-nav-next button" to="aerial-trams" @click="nextSlide()" @mousedown.prevent>
       <span>→</span>
     </button>
   </div>
@@ -19,9 +19,9 @@
 <script>
 export default {
   props: {
-    expoLength: {
-      type: Number,
-      default: 0
+    expo: {
+      type: Array,
+      default: null
     },
     showControls: {
       type: Boolean,
@@ -33,28 +33,31 @@ export default {
       return this.$store.state.currentSlide
     },
     progressBarLength () {
-      return 'width:' + ((this.currentSlide) / this.expoLength) * 100 + '%'
-    },
-    showModal () {
-      return this.$store.state.showModal
+      return 'width:' + ((this.currentSlide.number) / this.expoLength) * 100 + '%'
     },
     showMap () {
       return this.$store.state.showMap
+    },
+    expoLength () {
+      return this.expo.length
+    },
+    nextSlideExists () {
+      return this.expoLength > (this.currentSlide.number + 1)
+    },
+    prevSlideExists () {
+      return (this.currentSlide.number - 1) >= 0
     }
   },
   methods: {
     nextSlide () {
-      if (this.expoLength > (this.currentSlide + 1)) {
-        this.$store.commit('changeCurrentSlide', this.currentSlide + 1)
+      if (this.nextSlideExists) {
+        this.$router.push(this.expo[this.currentSlide.number + 1].id)
       }
     },
     prevSlide () {
-      if ((this.currentSlide - 1) >= 0) {
-        this.$store.commit('changeCurrentSlide', this.currentSlide - 1)
+      if (this.prevSlideExists) {
+        this.$router.push(this.expo[this.currentSlide.number - 1].id)
       }
-    },
-    toggleMap () {
-      this.$store.commit('toggleMap')
     }
   },
   transition: {

@@ -1,16 +1,19 @@
 export const state = () => ({
   showModal: false,
   showMap: false,
-  currentSlide: 0,
+  currentSlide: {
+    number: 0,
+    id: ''
+  },
   currentExpo: '',
   currentArt: {}
 })
 
 export const mutations = {
   toggleModal (state, payload) {
-    if (payload === open) {
+    if (payload === 'open') {
       state.showModal = true
-    } else if (payload === close) {
+    } else if (payload === 'close') {
       state.showModal = false
     } else {
       state.showModal = !state.showModal
@@ -23,12 +26,18 @@ export const mutations = {
     state.currentSlide = 0
   },
 
-  toggleMap (state) {
-    state.showMap = !state.showMap
+  toggleMap (state, payload) {
+    if (payload === 'open') {
+      state.showMap = true
+    } else if (payload === 'close') {
+      state.showMap = false
+    } else {
+      state.showMap = !state.showMap
+    }
   },
 
-  changeCurrentSlide (state, newSlide) {
-    state.currentSlide = newSlide
+  changeCurrentSlide (state, newCurrentSlide) {
+    state.currentSlide = newCurrentSlide
   },
 
   changeCurrentArt (state, art) {

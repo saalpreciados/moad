@@ -1,37 +1,34 @@
 <template>
-  <div>
-    <div class="expo-wrapper">
-      <h4>Mapa</h4>
-      <h2 class="mb-4">
-        Nom de l'exposició
-      </h2>
-      <ul class="expo-map">
-        <li v-for="(art, i) in filteredExpo" :key="i" :class="{'expo-map-item': true, 'expo-map-item-selected': i === currentSlide}">
-          <button class="button-def" @click="goToSlide(i)">
-            <img :src="art.src.thumbnail" alt="">
-            <div class="expo-map-item-title">
-              {{ art.title }}
-            </div>
-            <div class="expo-map-item-author">
-              {{ art.author }}
-            </div>
-            <div v-if="i === currentSlide" class="expo-map-item-selected">
-              <i class="las la-map-marker" /> Estàs ací
-            </div>
-          </button>
-        </li>
-      </ul>
-    </div>
+  <div class="map-wrapper">
+    <h4>Mapa</h4>
+    <h2 class="mb-4">
+      Nom de l'exposició
+    </h2>
+    <ul class="expo-map">
+      <li v-for="(art, i) in filteredExpo" :key="i" :class="{'expo-map-item': true, 'expo-map-item-selected': i === currentSlide}">
+        <button class="button-def" @click="goToSlide(i)">
+          <img :src="art.src.thumbnail" alt="">
+          <div class="expo-map-item-title">
+            {{ art.title }}
+          </div>
+          <div class="expo-map-item-author">
+            {{ art.author }}
+          </div>
+          <div v-if="i === currentSlide" class="expo-map-item-selected">
+            <i class="las la-map-marker" /> Estàs ací
+          </div>
+        </button>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ExpoMap',
   props: {
     expo: {
-      type: Object,
-      default: null
+      type: Array,
+      default: () => []
     }
   },
   computed: {
@@ -48,6 +45,7 @@ export default {
     },
     goToSlide (i) {
       this.$store.commit('changeCurrentSlide', i + 1)
+      this.$router.push(`${this.expo[this.currentSlide].id}`)
       this.$store.commit('toggleMap')
     }
   }
@@ -55,12 +53,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../sass/variables';
+@import '../../sass/variables';
 
-.expo-wrapper {
-  height: 92vh;
-  margin: 0;
-  padding: 0 2rem;
+.map-wrapper {
+  width: 100%;
+  padding: 0 8rem;
 }
 
 .expo-map {
@@ -105,10 +102,8 @@ export default {
 }
 
 @include media-breakpoint-down(md) {
-  .expo-wrapper {
-    height: 90vh;
-    margin: 0;
-    place-items: center end;
+  .map-wrapper {
+    padding: 0 1rem;
   }
 }
 

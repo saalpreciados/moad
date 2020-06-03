@@ -26,9 +26,9 @@
           Tancar Mapa
         </div>
       </div>
-      <button class="button button-sm" @click="toggleMap()">
+      <nuxt-link class="button button-sm" :to="{ path: $store.state.route.from.fullPath }">
         <i class="las la-times" />
-      </button>
+      </nuxt-link>
     </div>
 
     <b-collapse v-if="!showModal && !showMap" id="nav-collapse" is-nav>
@@ -63,14 +63,6 @@ export default {
     },
     currentArt () {
       return this.$store.state.currentArt
-    }
-  },
-  methods: {
-    toggleModal () {
-      this.$store.commit('toggleModal')
-    },
-    toggleMap () {
-      this.$store.commit('toggleMap')
     }
   }
 }

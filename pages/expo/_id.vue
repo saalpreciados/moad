@@ -1,7 +1,7 @@
 <template>
   <div>
-    <expo-slide :slide="expo[slideNumber]" />
-    <nuxt-child :src="expo[slideNumber].src" />
+    <expo-slide :slide="expo[currentSlide.number]" />
+    <nuxt-child :src="expo[currentSlide.number].src" />
   </div>
 </template>
 
@@ -21,20 +21,8 @@ export default {
   },
 
   computed: {
-    slideNumber () {
-      return this.expo.findIndex(slide => slide.id === this.$route.params.id)
-    },
     currentSlide () {
       return this.$store.state.currentSlide
-    },
-    showModal () {
-      return this.$store.state.showModal
-    }
-  },
-
-  watch: {
-    currentSlide (newSlide, oldSlide) {
-      this.$router.push(`${this.expo[this.currentSlide].id}`)
     }
   }
 }

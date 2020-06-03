@@ -1,38 +1,31 @@
 <template>
   <div>
-    <div v-if="!showMap" class="expo-wrapper">
+    <div class="expo-wrapper">
       <nuxt-child :expo="expo1" />
     </div>
-    <expo-map v-if="showMap" :expo="expo1" />
-    <expo-nav v-if="!showMap" :expo-length="expoLength" />
+    <expo-nav v-if="!showMap && !showModal" :expo="expo1" />
   </div>
 </template>
 
 <script>
 import expo1 from '@/assets/expo1.js'
 import ExpoNav from '@/components/ExpoNav'
-import ExpoMap from '@/components/ExpoMap'
 
 export default {
   components: {
-    ExpoNav,
-    ExpoMap
+    ExpoNav
   },
   middleware ({ route, redirect }) {
-    if (!route.params.id) {
+    if (!(route.path.endsWith('map')) && !(route.params.id)) {
       return redirect(`/expo/${expo1[0].id}`)
     }
   },
   data () {
     return {
-      expo1,
-      showModal: false
+      expo1
     }
   },
   computed: {
-    expoLength () {
-      return this.expo1.length
-    },
     currentSlide () {
       return this.$store.state.currentSlide
     },
@@ -41,18 +34,42 @@ export default {
     },
     route () {
       return this.$store.state.route.path
+    },
+    routeParams () {
+      return this.$store.state.route.params
+    },
+    showModal () {
+      return this.$store.state.showModal
     }
   },
   watch: {
     currentSlide (newslide, oldslide) {
-      this.$store.commit('changeCurrentArt', { art: expo1[this.currentSlide].title, author: expo1[this.currentSlide].author })
+      this.$store.commit('changeCurrentArt', { art: expo1[this.currentSlide.number].title, author: expo1[this.currentSlide.number].author })
     },
-    route (from, to) {
-      if (from.endsWith('modal')) {
-        this.$store.commit('toggleModal', open)
-      } else {
-        this.$store.commit('toggleModal', close)
-      }
+    route: {
+      handler (from, to) {
+        if (from.endsWith('modal')) {
+          this.$store.commit('toggleModal', 'open')
+        } else if (from.endsWith('map')) {
+          this.$store.commit('toggleMap', 'open')
+        } else {
+          this.$store.commit('toggleModal', 'close')
+          this.$store.commit('toggleMap', 'close')
+        }
+      },
+      immediate: true,
+      deep: true
+    },
+    routeParams: {
+      handler (from, to) {
+        this.$store.commit('changeCurrentSlide',
+          {
+            number: this.expo1.findIndex(slide => slide.id === this.$route.params.id),
+            id: this.$route.params.id
+          })
+      },
+      immediate: true,
+      deep: true
     }
   },
   transition: {
