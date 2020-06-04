@@ -5,7 +5,7 @@ export const state = () => ({
     number: 0,
     id: ''
   },
-  currentExpo: '',
+  currentExpo: 0,
   currentArt: {}
 })
 
@@ -38,6 +38,10 @@ export const mutations = {
 
   changeCurrentSlide (state, newCurrentSlide) {
     state.currentSlide = newCurrentSlide
+  },
+
+  changeCurrentExpo (state, newCurrentExpo) {
+    state.currentExpo = newCurrentExpo
   },
 
   changeCurrentArt (state, art) {

@@ -2,15 +2,15 @@
   <div>
     <div class="expo-wrapper">
       <transition name="slide" mode="out-in">
-        <nuxt-child :expo="expo1" />
+        <nuxt-child :expo="expo" />
       </transition>
     </div>
-    <expo-nav v-if="!showMap && !showModal" :expo="expo1" />
+    <expo-nav v-if="!showMap && !showModal" :expo="expo" />
   </div>
 </template>
 
 <script>
-import expo1 from '@/assets/expo1.js'
+import expositions from '@/assets/expositions.js'
 import ExpoNav from '@/components/ExpoNav'
 
 export default {
@@ -19,17 +19,23 @@ export default {
   },
   middleware ({ route, redirect }) {
     if (!(route.path.endsWith('map')) && !(route.params.id)) {
-      return redirect(`/expo/${expo1[0].id}`)
+      return redirect(`/expo/${this.expo[0].id}`)
     }
   },
   data () {
     return {
-      expo1
+      expositions
     }
   },
   computed: {
     currentSlide () {
       return this.$store.state.currentSlide
+    },
+    currentExpo () {
+      return this.$store.state.currentExpo
+    },
+    expo () {
+      return expositions[this.currentExpo].expo
     },
     showMap () {
       return this.$store.state.showMap
@@ -46,7 +52,7 @@ export default {
   },
   watch: {
     currentSlide (newslide, oldslide) {
-      this.$store.commit('changeCurrentArt', { art: expo1[this.currentSlide.number].title, author: expo1[this.currentSlide.number].author })
+      this.$store.commit('changeCurrentArt', { art: this.expo[this.currentSlide.number].title, author: this.expo[this.currentSlide.number].author })
     },
     route: {
       handler (from, to) {
@@ -67,7 +73,7 @@ export default {
         if (this.$route.params.id) {
           this.$store.commit('changeCurrentSlide',
             {
-              number: this.expo1.findIndex(slide => slide.id === this.$route.params.id),
+              number: this.expo.findIndex(slide => slide.id === this.$route.params.id),
               id: this.$route.params.id
             })
         }
