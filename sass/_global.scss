@@ -73,6 +73,9 @@ a.link-arrow {
 
 .button {
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   height: 4rem;
   width: 4rem;
@@ -82,17 +85,19 @@ a.link-arrow {
   border: 2px solid transparent;
   line-height: 0;
   font-size: 3rem;
+  color: $dark;
 
   &:hover, &:focus {
     outline: none;
     background-color: $gray-light;
     border-radius: 100%;
+    text-decoration: none;
   }
 
   &-sm {
-    font-size: 1.7rem;
-    height: 3rem;
-    width: 3rem;
+    font-size: 1.5rem;
+    height: 2.1rem;
+    width: 2.1rem;
   }
 }
 

@@ -62,11 +62,13 @@ export default {
     },
     routeParams: {
       handler (from, to) {
-        this.$store.commit('changeCurrentSlide',
-          {
-            number: this.expo1.findIndex(slide => slide.id === this.$route.params.id),
-            id: this.$route.params.id
-          })
+        if (this.$route.params.id) {
+          this.$store.commit('changeCurrentSlide',
+            {
+              number: this.expo1.findIndex(slide => slide.id === this.$route.params.id),
+              id: this.$route.params.id
+            })
+        }
       },
       immediate: true,
       deep: true

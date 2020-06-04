@@ -5,8 +5,8 @@
       Nom de l'exposició
     </h2>
     <ul class="expo-map">
-      <li v-for="(art, i) in filteredExpo" :key="i" :class="{'expo-map-item': true, 'expo-map-item-selected': i === currentSlide}">
-        <button class="button-def" @click="goToSlide(i)">
+      <li v-for="(art, i) in expo" :key="i" :class="{'expo-map-item': true, 'expo-map-item-selected': i === currentSlide}">
+        <button v-if="art.hasOwnProperty('src')" class="button-def" @click="goToSlide(i)" @mousedown.prevent>
           <img :src="art.src.thumbnail" alt="">
           <div class="expo-map-item-title">
             {{ art.title }}
@@ -14,9 +14,12 @@
           <div class="expo-map-item-author">
             {{ art.author }}
           </div>
-          <div v-if="i === currentSlide" class="expo-map-item-selected">
+          <div v-if="i === currentSlide.number" class="expo-map-item-selected">
             <i class="las la-map-marker" /> Estàs ací
           </div>
+        </button>
+        <button v-else class="button-def expo-map-item-custom" @click="goToSlide(i)" @mousedown.prevent>
+          {{ i }}
         </button>
       </li>
     </ul>
@@ -34,19 +37,11 @@ export default {
   computed: {
     currentSlide () {
       return this.$store.state.currentSlide
-    },
-    filteredExpo () {
-      return this.expo.filter(this.removeEmpty)
     }
   },
   methods: {
-    removeEmpty (obj) {
-      return Object.prototype.hasOwnProperty.call(obj, 'src')
-    },
     goToSlide (i) {
-      this.$store.commit('changeCurrentSlide', i + 1)
-      this.$router.push(`${this.expo[this.currentSlide].id}`)
-      this.$store.commit('toggleMap')
+      this.$router.push(`${this.expo[i].id}`)
     }
   }
 }
@@ -89,6 +84,12 @@ export default {
 
   &-author {
     text-align: left;
+  }
+
+  &-custom {
+    height: 250px;
+    width: 250px;
+    border: 2px solid $dark;
   }
 
   &-selected {

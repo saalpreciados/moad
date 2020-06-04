@@ -1,27 +1,5 @@
 <template>
   <div class="art-3d">
-    <div class="model-wrapper" @click="toggleModal()">
-      <model-obj
-        :src="src"
-        :controls-options="{
-          enablePan,
-          enableZoom,
-          enableRotate,
-        }"
-        @on-load="onLoad"
-      />
-      <client-only>
-        <Lottie
-          v-if="loading"
-          class-name="loading-icon"
-          renderer="svg"
-          :loop="true"
-          :autoplay="true"
-          :animation-data="loadingIcon"
-          @getLottieInstance="getLottieInstance"
-        />
-      </client-only>
-    </div>
     <div v-if="showModal" class="art-modal">
       <div class="model-wrapper-modal">
         <model-obj
@@ -43,15 +21,10 @@
 </template>
 
 <script>
-import Lottie from 'vue-lottie-web'
-import loadingIcon from '../assets/icons/loading.json'
 
 export default {
   name: 'Art3d',
 
-  components: {
-    Lottie
-  },
   props: {
     src: {
       type: String,
@@ -63,9 +36,7 @@ export default {
       enablePan: false,
       enableZoom: false,
       enableRotate: false,
-      loading: false,
-      loadingIcon,
-      lottieInstance: ''
+      loading: false
     }
   },
   computed: {
@@ -76,16 +47,6 @@ export default {
   methods: {
     toggleModal () {
       this.$store.commit('toggleModal')
-    },
-    onLoad () {
-      this.loading = false
-      this.lottieStop()
-    },
-    getLottieInstance (lottieInstance) {
-      this.lottieInstance = lottieInstance
-    },
-    lottieStop () {
-      this.lottieInstance && this.lottieInstance.stop()
     }
   }
 }

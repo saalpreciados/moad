@@ -1,8 +1,10 @@
 <template>
-  <video controls class="art-src">
-    <source :src="src" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
+  <div class="embed-responsive embed-responsive-16by9 art-src">
+    <video controls class="embed-responsive-item">
+      <source :src="src" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 </template>
 
 <script>
@@ -32,7 +34,6 @@ export default {
 
 .art-src {
   width: 100%;
-  height: $art-height;
 }
 
 @include media-breakpoint-down(md) {
