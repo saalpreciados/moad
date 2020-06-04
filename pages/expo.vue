@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="expo-wrapper">
-      <nuxt-child :expo="expo1" />
+      <transition name="slide" mode="out-in">
+        <nuxt-child :expo="expo1" />
+      </transition>
     </div>
     <expo-nav v-if="!showMap && !showModal" :expo="expo1" />
   </div>

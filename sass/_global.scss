@@ -133,6 +133,14 @@ a.link-arrow {
   opacity: 0;
 }
 
+.slide-enter-active, .slide-leave-active {
+  transition: opacity .5s ease-out, transform .25s ease-out;
+}
+.slide-enter, .slide-leave-active {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
 
 //Art Modals
 .art-modal {
