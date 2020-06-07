@@ -33,14 +33,14 @@
 
     <b-collapse v-if="!showModal && !showMap" id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item to="/expo" @mousedown.prevent>
+        <b-nav-item to="/expositions" @mousedown.prevent>
           Exposició
         </b-nav-item>
         <b-nav-item to="/manifest" @mousedown.prevent>
           Manifest
         </b-nav-item>
-        <b-nav-item to="/artists" @mousedown.prevent>
-          Artistes
+        <b-nav-item to="/participa" @mousedown.prevent>
+          Participa
         </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
