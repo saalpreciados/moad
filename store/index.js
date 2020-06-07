@@ -5,7 +5,7 @@ export const state = () => ({
     number: 0,
     id: ''
   },
-  currentExpo: '',
+  currentExpoId: '',
   currentArt: {}
 })
 
@@ -23,7 +23,8 @@ export const mutations = {
   resetExpo (state) {
     state.showModal = false
     state.showMap = false
-    state.currentSlide = 0
+    state.currentSlide.number = 0
+    state.currentSlide.id = ''
   },
 
   toggleMap (state, payload) {
@@ -38,6 +39,10 @@ export const mutations = {
 
   changeCurrentSlide (state, newCurrentSlide) {
     state.currentSlide = newCurrentSlide
+  },
+
+  changeCurrentExpoId (state, newCurrentExpoId) {
+    state.currentExpoId = newCurrentExpoId
   },
 
   changeCurrentArt (state, art) {

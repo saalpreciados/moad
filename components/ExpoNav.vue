@@ -51,7 +51,11 @@ export default {
   methods: {
     nextSlide () {
       if (this.nextSlideExists) {
-        this.$router.push(this.expo[this.currentSlide.number + 1].id)
+        if (this.$route.params.id) {
+          this.$router.push(this.expo[this.currentSlide.number + 1].id)
+        } else {
+          this.$router.push({ path: `${this.expo[this.currentSlide.number + 1].id}`, append: true })
+        }
       }
     },
     prevSlide () {
