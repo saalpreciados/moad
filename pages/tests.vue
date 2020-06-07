@@ -1,26 +1,16 @@
 <template>
-  <div class="art-img">
-    <img
-      v-if="showModal == false"
-      src="../assets/art/elvin-aliyev/appointment.jpg"
-      alt="Untitled 1"
-      @click="toggleModal()"
-    >
-    <div v-if="showModal" class="art-modal" @click="toggleModal()">
-      <v-zoomer ref="zoomer">
-        <img
-          src="../assets/art/elvin-aliyev/stairs.jpg"
-          @click.stop
-        >
-      </v-zoomer>
-      <div class="art-modal-controls-lg" @click.stop>
-        <button class="button button-sm" @click="$refs.zoomer.zoomIn()">
-          <i class="las la-search-plus" />
-        </button>
-        <button class="button button-sm" @click="$refs.zoomer.zoomOut()">
-          <i class="las la-search-minus" />
-        </button>
+  <div class="art-3d">
+    <div class="art-modal">
+      <div class="model-wrapper-modal">
+        <model-obj
+          src="../models/test.obj"
+        />
       </div>
+      <ul class="art-modal-controls-lg">
+        <li><i class="las la-search-plus" /> Roda del ratolí</li>
+        <li><i class="las la-undo-alt" /> Click + moure</li>
+        <li><i class="las la-arrows-alt" /> Espai + moure</li>
+      </ul>
       <div v-if="showModal" class="art-modal-controls-md" @click.stop>
         <button class="button" @click="toggleModal()">
           <i class="las la-times" />
@@ -31,12 +21,16 @@
 </template>
 
 <script>
+
 export default {
-  name: 'ArtImg',
-  props: {
-    src: {
-      type: String,
-      default: ''
+  name: 'Art3d',
+
+  data () {
+    return {
+      enablePan: false,
+      enableZoom: false,
+      enableRotate: false,
+      loading: false
     }
   },
   computed: {
@@ -55,103 +49,56 @@ export default {
 <style lang="scss" scoped>
 @import '../sass/variables';
 
-.art-img {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+.art-3d {
   height: 100%;
   width: 100%;
+}
 
-  img {
-    max-width: calc(100vw - 18rem);
-    height: $art-height;
-    object-fit: contain;
-  }
+.model-wrapper {
+  width: 100%;
+  height: $art-height;
+  position: relative;
 
   &:hover {
-    cursor: zoom-in;
+    cursor: pointer;
+  }
+
+  &-modal {
+    width: 90vw;
+    height: 90vh;
   }
 }
 
-.art-modal {
+.loading-icon {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
   right: 0;
-  background: white;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 0 2rem;
-  z-index: 100;
+  bottom: 0;
+  margin: auto;
+  width: 3rem;
+  height: 3rem;
+}
 
-  .vue-zoomer {
-    overflow: initial;
-    align-self: center;
-    justify-self: center;
+.art-src {
+  height: 100%;
+  width: 100%;
 
-    img {
-      cursor: move;
-      max-height: 90vh;
-      max-width: 100vw;
-    }
-  }
-
-  &-controls-lg {
-    width: 100%;
-    position: fixed;
-    display: flex;
-    height: 4rem;
-    justify-content: center;
-    align-items: center;
-    left: 0;
-    bottom: 0;
-    background: white;
-  }
-
-  &-controls-md {
-    display: none;
+  &:hover {
+    cursor: pointer;
   }
 }
 
 @include media-breakpoint-down(md) {
-  .art-img {
-    align-items: center;
-
-    img {
-      max-width: 100vw;
+  .art-3d {
+    .model-wrapper {
+      position: fixed;
     }
+  }
 
+  .art-src {
     &:hover {
       cursor: pointer;
-    }
-  }
-
-  .art-img {
-    position: fixed;
-  }
-
-  .art-modal {
-    &-controls-lg {
-      display: none;
-    }
-
-    &-controls-md {
-      width: 100%;
-      position: fixed;
-      display: flex;
-      height: 6rem;
-      justify-content: center;
-      align-items: center;
-      left: 0;
-      bottom: 0;
-      background: white;
-      text-align: center;
-
-      .button {
-        padding-bottom: 4rem;
-      }
     }
   }
 }
