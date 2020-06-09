@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../sass/variables';
+@import '../../sass/variables';
 
 .expo-slide-art {
   height: 100%;

@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../sass/variables';
+@import '../../sass/variables';
 
 .art-3d {
   height: 100%;

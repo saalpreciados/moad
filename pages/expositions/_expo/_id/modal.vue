@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ArtModal from '@/components/ArtModal'
+import ArtModal from '@/components/modals/ArtModal'
 
 export default {
   components: {
