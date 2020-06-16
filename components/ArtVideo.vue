@@ -1,6 +1,6 @@
 <template>
-  <div class="embed-responsive embed-responsive-16by9 art-src">
-    <video controls class="embed-responsive-item">
+  <div class="art-src">
+    <video controls>
       <source :src="src" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
@@ -33,13 +33,31 @@ export default {
 @import '../sass/variables';
 
 .art-src {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
   width: 100%;
+
+  video {
+    max-width: calc(100vw - 18rem);
+    height: $art-height;
+    object-fit: contain;
+  }
 }
 
 @include media-breakpoint-down(md) {
   .art-src {
-    width: 100vw;
+    align-items: center;
     position: fixed;
+
+    video {
+      max-width: 100vw;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
