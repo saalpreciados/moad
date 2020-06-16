@@ -1,45 +1,37 @@
-import aerialTrams from '~/assets/art/elvin-aliyev/aerial-trams.jpg'
-import station from '~/assets/art/elvin-aliyev/celestial-station.jpg'
-import thePlanet from '~/assets/art/elvin-aliyev/the-planet.png'
+import moadImg from '~/assets/art/moad/moad-169.png'
 
 const expo2 = [
   {
-    id: 'whatever-title',
-    html: '<h1>Expo 1</h1>',
-    title: 'Whatever title',
-    description: '',
-    custom: true
-  }, {
-    id: 'aerial-trams',
-    title: 'Aerial Trams',
+    id: 'moad-test',
+    title: 'Obra de Prova',
     src: {
       type: 'img',
-      url: aerialTrams,
-      thumbnail: aerialTrams
+      url: moadImg,
+      thumbnail: moadImg
     },
-    author: 'Elvin Aliyev',
+    author: 'Museu Online Art Digital',
     tags: ''
   },
   {
-    id: 'station',
-    title: 'Station',
+    id: 'moad-test-2',
+    title: 'Obra de Prova 2',
     src: {
       type: 'img',
-      url: station,
-      thumbnail: station
+      url: moadImg,
+      thumbnail: moadImg
     },
-    author: 'Elvin Aliyev',
+    author: 'Museu Online Art Digital',
     tags: ''
   },
   {
-    id: 'the-planet',
-    title: 'The Planet',
+    id: 'moad-test-3',
+    title: 'Obra de Prova 3',
     src: {
       type: 'img',
-      url: thePlanet,
-      thumbnail: thePlanet
+      url: moadImg,
+      thumbnail: moadImg
     },
-    author: 'Elvin Aliyev',
+    author: 'Museu Online Art Digital',
     tags: ''
   }
 ]
