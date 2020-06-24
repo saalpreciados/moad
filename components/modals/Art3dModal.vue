@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     toggleModal () {
-      this.$store.commit('toggleModal')
+      this.$router.go(-1)
     }
   }
 }

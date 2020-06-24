@@ -41,6 +41,10 @@ export default {
   height: 100%;
   width: 100%;
 
+  a {
+    cursor: zoom-in;
+  }
+
   img {
     max-width: calc(100vw - 18rem);
     height: $art-height;

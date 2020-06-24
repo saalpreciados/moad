@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     toggleModal () {
-      this.$store.commit('toggleModal')
+      this.$router.go(-1)
     }
   }
 }
@@ -60,10 +60,6 @@ export default {
     max-width: calc(100vw - 18rem);
     height: $art-height;
     object-fit: contain;
-  }
-
-  &:hover {
-    cursor: zoom-in;
   }
 }
 

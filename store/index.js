@@ -6,6 +6,7 @@ export const state = () => ({
     id: ''
   },
   currentExpoId: '',
+  currentExpoName: '',
   currentArt: {}
 })
 
@@ -43,6 +44,10 @@ export const mutations = {
 
   changeCurrentExpoId (state, newCurrentExpoId) {
     state.currentExpoId = newCurrentExpoId
+  },
+
+  changeCurrentExpoName (state, newCurrentExpoName) {
+    state.currentExpoName = newCurrentExpoName
   },
 
   changeCurrentArt (state, art) {

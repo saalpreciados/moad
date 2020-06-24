@@ -121,6 +121,7 @@ export default {
     &-info {
       text-align: right;
       margin-right: 1rem;
+      line-height: 1.4;
 
       &-author {
         font-size: 0.8rem;

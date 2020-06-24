@@ -13,13 +13,22 @@
             </div>
           </div>
           <div class="expo-slide-info-share">
-            <a :href="slide.twitter"><i class="lab la-twitter" /></a>
-            <a :href="slide.link"><i class="las la-link" /></a>
+            <a v-if="slide.twitter" :href="'https://twitter.com/'+slide.twitter" target="_blank"><i class="lab la-twitter" /></a>
+            <a v-if="slide.instagram" :href="'https://instagram.com/'+slide.instagram" target="_blank"><i class="lab la-instagram" /></a>
+            <a v-if="slide.youtube" :href="'https://youtube.com/'+slide.youtube" target="_blank"><i class="lab la-youtube" /></a>
+            <a v-if="slide.soundcloud" :href="'https://soundcloud.com/'+slide.soundcloud" target="_blank"><i class="lab la-soundcloud" /></a>
+            <a v-if="slide.web" :href="slide.web" target="_blank"><i class="lab la-youtube" /></a>
+            <a><i class="las la-link" /></a>
           </div>
         </div>
         <p class="expo-slide-info-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          {{ slide.technique }}
+        </p>
+        <p v-if="slide.description" class="expo-slide-info-description">
+          {{ slide.description }}
+        </p>
+        <p v-if="slide.artistnotes" class="expo-slide-info-description">
+          Nota de l'artista: {{ slide.artistnotes }}
         </p>
       </div>
     </template>
@@ -70,6 +79,7 @@ export default {
 
   &-info {
     align-self: end;
+    width: 100%;
     max-width: 800px;
     border-top: 1.5px black solid;
     padding-top: 1.5rem;

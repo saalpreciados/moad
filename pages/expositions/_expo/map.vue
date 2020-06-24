@@ -2,7 +2,7 @@
   <div class="map-wrapper">
     <h4>Mapa</h4>
     <h2 class="mb-4">
-      Nom de l'exposició
+      {{ currentExpoName }}
     </h2>
     <ul class="expo-map">
       <li v-for="(art, i) in expo" :key="i" :class="{'expo-map-item': true, 'expo-map-item-selected': i === currentSlide}">
@@ -37,6 +37,9 @@ export default {
   computed: {
     currentSlide () {
       return this.$store.state.currentSlide
+    },
+    currentExpoName () {
+      return this.$store.state.currentExpoName
     }
   },
   methods: {

@@ -3,7 +3,7 @@
     <div class="welcome-text">
       Benvinguts al Museu Online d'Art Digital
     </div>
-    <client-only>
+    <!-- <client-only>
       <Lottie
         class-name="scroll-icon"
         renderer="svg"
@@ -12,19 +12,19 @@
         :animation-data="scrollIcon"
         stroke="blue"
       />
-    </client-only>
+    </client-only> -->
   </div>
 </template>
 
 <script>
-import Lottie from 'vue-lottie-web'
+// import Lottie from 'vue-lottie-web'
 import scrollIcon from '../assets/icons/scroll-down.json'
 
 export default {
   name: 'MoadWelcome',
 
   components: {
-    Lottie
+    // Lottie
   },
 
   data () {
@@ -41,15 +41,14 @@ export default {
   .welcome {
   display: grid;
   grid-template-rows: 0.85fr 0.15fr;
-  place-items: center center;
-  height: calc(100vh - 4rem);
+  height: calc(30vh - 4rem);
 
   &-text {
     font-size: 6rem;
     color: blue;
     max-width: 1000px;
     line-height: 1.2;
-    padding: 0 1rem;
+    padding: 2rem 2rem;
   }
 }
 

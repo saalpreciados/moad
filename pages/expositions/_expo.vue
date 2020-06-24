@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="expo-wrapper">
-      <transition name="slide" mode="out-in">
-        <nuxt-child :expo="currentExpo" />
-      </transition>
+      <nuxt-child :expo="currentExpo" />
     </div>
     <expo-nav v-if="!showMap && !showModal" :expo="currentExpo" />
   </div>
@@ -71,6 +69,8 @@ export default {
         }
         if (this.$route.params.expo) {
           this.$store.commit('changeCurrentExpoId', this.$route.params.expo)
+          const i = this.expositions.findIndex(expo => expo.id === this.$route.params.expo)
+          this.$store.commit('changeCurrentExpoName', this.expositions[i].title)
         }
       },
       immediate: true,
