@@ -33,7 +33,8 @@ export default {
   plugins: [
     { src: '~/plugins/vue-zoomer', mode: 'client' },
     { src: '~/plugins/vue-3d-model', mode: 'client' },
-    '~/plugins/vuex-router-sync'
+    '~/plugins/vuex-router-sync',
+    '~/plugins/vue-clipboard'
   ],
   /*
    ** Nuxt.js dev-modules

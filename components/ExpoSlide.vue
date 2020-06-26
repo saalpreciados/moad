@@ -18,7 +18,7 @@
             <a v-if="slide.youtube" :href="'https://youtube.com/'+slide.youtube" target="_blank"><i class="lab la-youtube" /></a>
             <a v-if="slide.soundcloud" :href="'https://soundcloud.com/'+slide.soundcloud" target="_blank"><i class="lab la-soundcloud" /></a>
             <a v-if="slide.web" :href="slide.web" target="_blank"><i class="lab la-youtube" /></a>
-            <a><i class="las la-link" /></a>
+            <a v-clipboard:copy="currentUrl"><i class="las la-link" /></a>
           </div>
         </div>
         <p class="expo-slide-info-description">
@@ -58,10 +58,18 @@ export default {
       default: null
     }
   },
+  data () {
+    return {
+      currentUrl: ''
+    }
+  },
   computed: {
     showModal () {
       return this.$store.state.showModal
     }
+  },
+  mounted () {
+    this.currentUrl = window.location.href
   }
 }
 </script>
