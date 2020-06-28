@@ -101,6 +101,19 @@ const epsg = [
     instagram: 'aka.migas'
   },
   {
+    id: 'undercover',
+    title: 'Undercover Love',
+    src: {
+      type: 'audio',
+      url: '/audio/freq-undercover.mp3'
+    },
+    author: 'detunedfreq',
+    technique: 'Música digital',
+    artistnotes: 'Llevaba tiempo queriendo hacer un tema pop con ritmo de garage, y esta fue la oportunidad perfecta. Además, creo que usar el piano como instrumento principal del break le da un toque especial. No sé, esto no representa nada. Simplemente me mola un montón cómo suena.',
+    instagram: 'detuned.freq',
+    twitter: 'detunedfreq'
+  },
+  {
     id: 'letsgoaway',
     title: "Let's Go Away For A While",
     src: {

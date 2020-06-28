@@ -52,6 +52,7 @@ export default {
     position: fixed;
 
     video {
+      height: auto;
       max-width: 100vw;
     }
 

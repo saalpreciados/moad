@@ -13,12 +13,14 @@
             </div>
           </div>
           <div class="expo-slide-info-share">
+            <a v-clipboard:copy="currentUrl"><i class="las la-link" /></a>
+          </div>
+          <div class="expo-slide-info-social">
             <a v-if="slide.twitter" :href="'https://twitter.com/'+slide.twitter" target="_blank"><i class="lab la-twitter" /></a>
             <a v-if="slide.instagram" :href="'https://instagram.com/'+slide.instagram" target="_blank"><i class="lab la-instagram" /></a>
             <a v-if="slide.youtube" :href="'https://youtube.com/'+slide.youtube" target="_blank"><i class="lab la-youtube" /></a>
             <a v-if="slide.soundcloud" :href="'https://soundcloud.com/'+slide.soundcloud" target="_blank"><i class="lab la-soundcloud" /></a>
             <a v-if="slide.web" :href="slide.web" target="_blank"><i class="lab la-youtube" /></a>
-            <a v-clipboard:copy="currentUrl"><i class="las la-link" /></a>
           </div>
         </div>
         <p class="expo-slide-info-description">
@@ -93,7 +95,8 @@ export default {
     padding-top: 1.5rem;
 
     &-main {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
       align-items: center;
       margin-bottom: 2rem;
     }
@@ -116,14 +119,8 @@ export default {
       line-height: 1.5;
     }
 
-    &-share {
+    &-share, &-social {
       font-size: 2rem;
-      a {
-        &:hover {
-          color: $primary;
-          cursor: pointer;
-        }
-      }
     }
   }
 
@@ -151,6 +148,11 @@ margin: 0;
     position: relative;
     grid-area: info;
     padding: 1rem;
+
+    &-main {
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+    }
   }
 }
 

@@ -1,6 +1,7 @@
 <template>
   <div :class="[showModal ? 'expo-slide-art--modal-open' : 'expo-slide-art']">
     <art-video v-if="src.type === 'video'" :src="src.url" />
+    <art-audio v-else-if="src.type === 'audio'" :src="src.url" />
     <art-img v-else :src="src" />
   </div>
 </template>
@@ -8,12 +9,14 @@
 <script>
 import ArtImg from './ArtImg'
 import ArtVideo from './ArtVideo'
+import ArtAudio from './ArtAudio'
 
 export default {
   name: 'Art',
   components: {
     ArtImg,
-    ArtVideo
+    ArtVideo,
+    ArtAudio
   },
   props: {
     src: {
