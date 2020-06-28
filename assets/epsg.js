@@ -7,9 +7,8 @@ import polifemo from '~/assets/art/expo-epsg/monto-polifemo.jpg'
 const epsg = [
   {
     id: 'epsg',
-    html: "<h1>L'art digital en quarantena</h1>",
     title: "L'art digital en quarantena",
-    artistnotes: '',
+    description: "L'exposició inaugural del MOAD exposa art digital de companys del Campus de Gandia. Molts d'ells han realitzat aquestes peces durant la quarantena, periode en el qual els mitjans expositius tradicionals no estaven disponibles. Aquesta exposició és un recull d'obres sense res més en comú entre elles que el fet d'haver sigut produïdes en un periode únic per un grup de gent que conviu en un mateix lloc durant el curs. És una exposició, a més, oberta a tot l'alumnat que hi vulga participar.",
     custom: true
   },
   {

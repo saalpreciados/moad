@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'expo-slide' : true, 'expo-slide-custom': slide.custom, 'container' : slide.custom }">
+  <div :class="{'expo-slide' : !slide.custom, 'expo-slide-custom': slide.custom, 'container' : slide.custom }">
     <template v-if="!slide.custom">
       <art :src="slide.src" />
       <div v-if="!showModal" class="expo-slide-info">
@@ -36,13 +36,12 @@
     </template>
     <template v-if="slide.custom">
       <div class="expo-slide-custom-title">
-        {{ slide.title }}
+        <span>{{ slide.title }}</span>
+        <a v-clipboard:copy="currentUrl"><i class="las la-link" /></a>
       </div>
       <p class="expo-slide-custom-info">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        {{ slide.description }}
       </p>
-      <template class="expo-slide-custom-html" />
     </template>
   </div>
 </template>
@@ -127,8 +126,16 @@ export default {
   &-custom {
     margin-top: 4rem;
     align-self: center;
+
     &-title {
-      font-size: 2.75rem
+      display: flex;
+      flex-direction: row;
+      font-size: 2.75rem;
+      margin-bottom: 2rem;
+
+      a {
+        margin-left: 3rem;
+      }
     }
   }
 }

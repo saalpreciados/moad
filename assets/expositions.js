@@ -8,7 +8,7 @@ const expositions = [
   {
     title: 'Art digital de la gent de Gandia',
     img: epsg[7].src.url,
-    description: "L'exposició inaugural del MOAD exposa art digital de companys del Campus de Gandia. Molts d'ells han realitzat aquestes peces durant la quarantena, periode en el qual els mitjans expositius tradicionals no estaven disponibles.",
+    description: "L'exposició inaugural del MOAD exposa art digital d'alumnes i ex-alumnes del Campus de Gandia. Molts d'ells han realitzat aquestes peces durant la quarantena, periode en el qual els mitjans expositius tradicionals no estaven disponibles.",
     url: 'epsg',
     id: 'epsg',
     expo: epsg
