@@ -1,22 +1,10 @@
-# moad
+# Museu Online d'Art Digital
 
-> museu online d&#39;art digital
+Aquest repositori conté el codi de la plataforma web del Museu Online d'Art Digital. Si t'interessa col·laborar en aquest projecte, envia'm un mail a moad@imcarl.es!
 
-## Build Setup
+# Què és el MOAD?
 
-``` bash
-# install dependencies
-$ yarn install
+El Museu Online d'Art Digital vol ser una institució lliure, oberta i gratuïta al servei d'artistes, investigadors i curadors. Busca crear un espai ideal a l'artista digital per a exposar la seua obra, i, a la vegada una plataforma útil per a l'exposició, conservació i organització de l'art digital. 
+A la vegada, pretén obrir l'Art Digital al gran públic.
 
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+Pots llegit el nostre manifest fundacional al web.
