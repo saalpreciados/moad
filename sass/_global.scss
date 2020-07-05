@@ -118,6 +118,10 @@ a.button {
     border-radius: 0;
     border: 1.25px solid $body-color;
   }
+
+  .arrow {
+    display: none;
+  }
   
   .arrow::before {
     border-top-color: transparent;

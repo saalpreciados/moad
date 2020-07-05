@@ -1,7 +1,7 @@
 <template>
   <div class="expo-nav">
     <nuxt-link id="progress-bar" class="expo-nav-progress button-def" :style="progressBarLength" to="map" @mousedown.prevent />
-    <b-tooltip target="progress-bar" triggers="hover" offset="10000px" custom-class="tooltip-moad">
+    <b-tooltip target="progress-bar" triggers="hover focus" offset="10000px" custom-class="tooltip-moad">
       Obrir Mapa
     </b-tooltip>
     <button v-if="showControls && prevSlideExists" class="expo-nav-prev button" @click="prevSlide()" @mousedown.prevent>
