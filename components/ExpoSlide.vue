@@ -12,8 +12,16 @@
               {{ slide.author }}
             </div>
           </div>
-          <div class="expo-slide-info-share">
-            <a v-clipboard:copy="currentUrl"><i class="las la-link" /></a>
+          <div class="expo-slide-info-share" @mouseleave="linkCopied = false">
+            <a id="copy-url" v-clipboard:copy="currentUrl" no-fade="true" @click="linkCopied = true"><i class="las la-link" /></a>
+            <b-tooltip
+              target="copy-url"
+              triggers="hover focus"
+              custom-class="tooltip-moad"
+              placement="bottom"
+            >
+              <span v-if="!linkCopied">Copiar enllaç a l'obra</span><span v-else>Enllaç Copiat</span>
+            </b-tooltip>
           </div>
           <div class="expo-slide-info-social">
             <a v-if="slide.twitter" :href="'https://twitter.com/'+slide.twitter" target="_blank"><i class="lab la-twitter" /></a>
@@ -23,14 +31,14 @@
             <a v-if="slide.web" :href="slide.web" target="_blank"><i class="lab la-youtube" /></a>
           </div>
         </div>
-        <p class="expo-slide-info-description">
-          {{ slide.technique }}
-        </p>
         <p v-if="slide.description" class="expo-slide-info-description">
           {{ slide.description }}
         </p>
+        <p class="expo-slide-info-description">
+          <span>Tècnica </span>{{ slide.technique }}
+        </p>
         <p v-if="slide.artistnotes" class="expo-slide-info-description">
-          Nota de l'artista: {{ slide.artistnotes }}
+          <span>Nota de l'artista </span> {{ slide.artistnotes }}
         </p>
       </div>
     </template>
@@ -61,7 +69,8 @@ export default {
   },
   data () {
     return {
-      currentUrl: ''
+      currentUrl: '',
+      linkCopied: false
     }
   },
   computed: {
@@ -95,9 +104,14 @@ export default {
 
     &-main {
       display: grid;
+      column-gap: 1rem;
       grid-template-columns: 1fr auto auto;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
+
+      p {
+        margin-bottom: 1rem;
+      }
     }
 
     &-art {
@@ -113,13 +127,21 @@ export default {
     }
 
     &-description {
-      margin: 0;
       max-width: 800px;
       line-height: 1.5;
     }
 
     &-share, &-social {
       font-size: 2rem;
+    }
+
+    span {
+      display: block;
+      color: $gray;
+    }
+
+    #copy-url {
+      cursor: pointer;
     }
   }
 
@@ -155,6 +177,7 @@ margin: 0;
     position: relative;
     grid-area: info;
     padding: 1rem;
+    margin-bottom: 5rem;
 
     &-main {
       grid-template-columns: 1fr auto;
