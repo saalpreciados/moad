@@ -146,8 +146,11 @@ export default {
   }
 
   &-custom {
+    min-height: calc(100vh - 12rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-top: 4rem;
-    align-self: center;
 
     &-title {
       display: flex;

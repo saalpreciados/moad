@@ -1,7 +1,12 @@
 <template>
-  <div class="welcome">
+  <div class="container welcome">
     <div class="welcome-text">
       Benvinguts al Museu Online d'Art Digital
+    </div>
+    <div class="links">
+      <a class="link-arrow" href="">Exposicions</a>
+      <a class="link-arrow" href="">Sobre nosaltres</a>
+      <a class="link-arrow" href="">Participa al museu</a>
     </div>
     <!-- <client-only>
       <Lottie
@@ -38,17 +43,23 @@ export default {
 <style lang="scss" scoped>
 @import '../sass/variables';
 
-  .welcome {
-  display: grid;
-  grid-template-rows: 0.85fr 0.15fr;
-  height: calc(30vh - 4rem);
+.welcome {
+  margin-bottom: 3rem 0;
 
   &-text {
     font-size: 6rem;
     color: blue;
-    max-width: 1000px;
-    line-height: 1.2;
-    padding: 2rem 2rem;
+    line-height: 1.1;
+    padding: 2rem 0;
+  }
+
+  .links {
+    font-size: 2rem;
+
+    a {
+      display: inline-block;
+      margin-right: 1.5rem;
+    }
   }
 }
 

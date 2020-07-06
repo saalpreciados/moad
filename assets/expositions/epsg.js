@@ -35,7 +35,7 @@ const epsg = [
       thumbnail: require('~/assets/art/expo-epsg/thumbnails/mateos-loose-th.png')
     },
     author: 'Eduardo Mateos',
-    technique: 'Art 3D, Motion graphics',
+    technique: 'Animació, Art 3D, Motion graphics',
     artistnotes: 'Pieza de arte abstracto que combina 2D y 3D en un juego visual que atraviesa las etapas de una sociedad. Una comunidad que crece en grupo y pronto se convierte en un campo de batalla de posiciones opuestas que acaba inevitablemente con la consumación de uno de las fuerzas.',
     instagram: 'edumateos19'
   },
@@ -60,6 +60,7 @@ const epsg = [
       url: '/video/socarrona-raices.mp4',
       thumbnail: require('~/assets/art/expo-epsg/thumbnails/socarrona-raices-th.png')
     },
+    technique: 'Animació, collage digital',
     author: 'Socarrona',
     web: 'https://www.socarrona.com/'
   },

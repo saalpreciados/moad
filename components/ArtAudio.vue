@@ -36,8 +36,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: auto;
   height: 100%;
   width: 100%;
+  max-width: 800px;
 
   audio {
     width: 100%;

@@ -88,17 +88,13 @@ export default {
 @import '../../sass/variables';
 
 .expo-wrapper {
-  display: grid;
-  min-height: calc(100vh - 8rem);
   margin: 0 0 4rem 0;
-  place-items: center center;
 }
 
 @include media-breakpoint-down(md) {
   .expo-wrapper {
     height: 90vh;
     margin: 0;
-    place-items: center end;
   }
 }
 

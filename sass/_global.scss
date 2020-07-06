@@ -66,6 +66,10 @@ a.link-arrow {
     color: $primary;
     padding-left: 1rem;
   }
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 //UI
