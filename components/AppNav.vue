@@ -37,7 +37,7 @@
           Exposició
         </b-nav-item>
         <b-nav-item to="/manifest" @mousedown.prevent>
-          Manifest
+          Nosaltres
         </b-nav-item>
         <b-nav-item to="/participa" @mousedown.prevent>
           Participa

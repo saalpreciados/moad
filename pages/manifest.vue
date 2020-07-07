@@ -1,8 +1,17 @@
 <template>
   <div class="container manifesto">
-    <h1>Manifest</h1>
+    <h1>Sobre el Museu</h1>
     <p>
-      il·lustracions precioses perdudes a la timeline de Twitter. Animacions de 15 segons consumides a una història d’instagram. Peces interactives inaccessibles a un domini caducat.
+      El Museu Online d'Art Digital vol ser una institució lliure, oberta i gratuïta al servei d'artistes, investigadors i curadors. Busca crear un espai ideal a l'artista digital per a exposar la seua obra i una plataforma útil per a l'exposició, conservació i organització de l'art digital. De la mateixa manera, pretén obrir l'Art Digital a un públic més ampli.
+    </p>
+    <p>
+      Acabem de nàixer com a institució, pero volem seguir cresquent amb tu. <nuxt-link to="participa">
+        Vols participar?
+      </nuxt-link>
+    </p>
+    <h1>El nostre manifest</h1>
+    <p>
+      Il·lustracions precioses perdudes a la timeline de Twitter. Animacions de 15 segons consumides a una història d’instagram. Peces interactives inaccessibles a un domini caducat.
     </p>
     <p>
       Avui dia es crea art, disseny, il·lustració, publicitat.. que es perd en l’oceà d’informació. Obres amb estils únics, valor incalculable, narratives que defineixen els nostres dies. Obres consumides fugaçment. Obres que no han estat pensades per a ser impresses i que no s’immortalitzen tot i que tenen un inestimable valor. Obres que en molts casos ningú recopila ni conserva, discriminades per haver nascut sense cos.
@@ -23,9 +32,9 @@ export default {
 
 <style lang="scss" scoped>
   .manifesto {
-
     p {
-      font-size: 1.5rem;
+      line-height: 1.7;
+      font-size: 1.25rem;
     }
 
     h1 {

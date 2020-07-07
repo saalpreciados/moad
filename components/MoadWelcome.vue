@@ -4,9 +4,16 @@
       Benvinguts al Museu Online d'Art Digital
     </div>
     <div class="links">
-      <a class="link-arrow" href="">Exposicions</a>
-      <a class="link-arrow" href="">Sobre nosaltres</a>
-      <a class="link-arrow" href="">Participa al museu</a>
+      <a class="link-arrow" href="#expositions">
+        Exposicions
+      </a>
+      <nuxt-link class="link-arrow" to="manifest">
+        Sobre nosaltres
+      </nuxt-link>
+      <nuxt-link class="link-arrow" to="participa">
+        Participa al museu
+      </nuxt-link>
+      </a>
     </div>
     <!-- <client-only>
       <Lottie

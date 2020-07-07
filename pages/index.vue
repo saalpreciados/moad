@@ -2,7 +2,7 @@
   <div>
     <moad-welcome />
     <div class="container">
-      <h1 class="title">
+      <h1 id="expositions" class="title">
         Exposicions
       </h1>
     </div>
