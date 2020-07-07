@@ -14,9 +14,9 @@ const expositions = [
   {
     title: 'Exposició en construcció',
     img: epsg[7].src.url,
-    description: 'Esta exposició està en construcció. No obstant, sembla que la porta està entreoberta. Potser pots intentar entrar?',
-    url: '#',
-    id: 'construcció',
+    description: 'Esta exposició està en construcció.',
+    url: '',
+    id: '',
     expo: epsg
   }
   /* {

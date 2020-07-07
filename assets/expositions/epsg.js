@@ -127,6 +127,12 @@ const epsg = [
     instagram: 'polfrankmusic',
     soundcloud: 'musicisthebest1',
     youtube: 'PolFrank'
+  },
+  {
+    id: 'epsg-end',
+    title: "L'art digital en quarantena",
+    description: "Moltes gràcies per visitar l'exposició inaugural del Museu Online d'Art Digital. Moltes gràcies a Sofía Añón Picó, Eduardo Mateos, Julia Carrión, Socarrona, Carlos Montó, detunedfreq i PolFrank per confiar en aquesta plataforma tan nova per a exposar el seu art. Aquesta és una exposició oberta i en proves. Si tens suggerències i/o vols participar envia un correu a moad@imcarl.es. Si t'ha agradat l'exposició, comparteix-la. Gràcies per la visita!",
+    custom: true
   }
 ]
 
