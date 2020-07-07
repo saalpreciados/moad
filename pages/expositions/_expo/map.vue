@@ -7,7 +7,10 @@
     <ul class="expo-map">
       <li v-for="(art, i) in expo" :key="i" :class="{'expo-map-item': true, 'expo-map-item-selected': i === currentSlide}">
         <button v-if="art.hasOwnProperty('src')" class="button-def" @click="goToSlide(i)" @mousedown.prevent>
-          <img :src="art.src.thumbnail" alt="">
+          <img v-if="art.src.hasOwnProperty('thumbnail')" :src="art.src.thumbnail" :alt="art.title">
+          <div v-else class="expo-map-item-no-thumbnail">
+            <i class="las la-file-audio" />
+          </div>
           <div class="expo-map-item-title">
             {{ art.title }}
           </div>
@@ -19,7 +22,12 @@
           </div>
         </button>
         <button v-else class="button-def expo-map-item-custom" @click="goToSlide(i)" @mousedown.prevent>
-          {{ i }}
+          <div class="expo-map-item-custom-title">
+            {{ art.title }}
+          </div>
+          <div class="expo-map-item-custom-excerpt">
+            {{ art.description.substring(0,100) }}[...]
+          </div>
         </button>
       </li>
     </ul>
@@ -56,6 +64,7 @@ export default {
 .map-wrapper {
   width: 100%;
   padding: 0 8rem;
+  margin-bottom: 2rem;
 }
 
 .expo-map {
@@ -68,7 +77,12 @@ export default {
 }
 
 .expo-map-item {
+  button {
+    width: 100%;
+  }
+
   img {
+    background: $gray-light;
     object-fit: cover;
     height: 250px;
     width: 250px;
@@ -90,9 +104,26 @@ export default {
   }
 
   &-custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
     height: 250px;
     width: 250px;
     border: 2px solid $dark;
+
+    &-title {
+      font-size: 1.75rem;
+      line-height: 1.2;
+      margin-bottom: .5rem;
+    }
+
+    &-excerpt {
+      font-size: .9rem;
+      line-height: 1.4;
+      color: $gray;
+    }
   }
 
   &-selected {
@@ -102,6 +133,17 @@ export default {
     .expo-map-item-title, .expo-map-item-author {
       color: blue;
     }
+  }
+
+  &-no-thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background: $gray;
+    color: $white;
+    height: 250px;
+    width: 250px;
   }
 }
 
@@ -117,6 +159,10 @@ export default {
 
     &-item {
       img {
+        width: 100%;
+      }
+
+      &-custom, &-no-thumbnail {
         width: 100%;
       }
     }
