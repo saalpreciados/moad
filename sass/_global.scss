@@ -157,71 +157,56 @@ a.button {
   opacity: 0;
 }
 
+/* Modal controls */
 
-//Art Modals
-.art-modal {
-  position: absolute;
-  top: 0;
+.modal-controls-lg {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  height: 4rem;
+  justify-content: center;
+  align-items: center;
   left: 0;
   bottom: 0;
-  right: 0;
   background: white;
-  overflow: hidden;
-  z-index: 100;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  grid-template-columns: 1fr;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-  &-controls-lg {
+  li {
+    margin-right: 1.5rem;
+  }
+
+  i {
+    font-size: 1.25rem;
+  }
+}
+
+.modal-controls-sm {
+display: none;
+}
+
+
+
+@include media-breakpoint-down(md) {
+  .modal-controls-lg {
+    display: none;
+  }
+
+  .modal-controls-sm {
     width: 100%;
     position: fixed;
     display: flex;
-    height: 4rem;
+    height: 6rem;
     justify-content: center;
     align-items: center;
     left: 0;
     bottom: 0;
     background: white;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    text-align: center;
 
-    li {
-      margin-right: 1.5rem;
-    }
-
-    i {
-      font-size: 1.25rem;
-    }
-  }
-
-  &-controls-md {
-    display: none;
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .art-modal {
-    &-controls-lg {
-      display: none;
-    }
-
-    &-controls-md {
-      width: 100%;
-      position: fixed;
-      display: flex;
-      height: 6rem;
-      justify-content: center;
-      align-items: center;
-      left: 0;
-      bottom: 0;
-      background: white;
-      text-align: center;
-
-      .button {
-        padding-bottom: 4rem;
-      }
+    .button {
+      padding-bottom: 4rem;
     }
   }
 }

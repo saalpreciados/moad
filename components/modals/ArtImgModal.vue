@@ -1,25 +1,18 @@
 <template>
-  <div class="art-img">
-    <div class="art-modal" @click="toggleModal()">
-      <v-zoomer ref="zoomer">
-        <img
-          :src="src.images[src.images.length-1].path"
-          @click.stop
-        >
-      </v-zoomer>
-      <div class="art-modal-controls-lg" @click.stop>
-        <button class="button button-sm" @click="$refs.zoomer.zoomIn()">
-          <i class="las la-search-plus" />
-        </button>
-        <button class="button button-sm" @click="$refs.zoomer.zoomOut()">
-          <i class="las la-search-minus" />
-        </button>
-      </div>
-      <div class="art-modal-controls-md" @click.stop>
-        <button class="button" @click="toggleModal()">
-          <i class="las la-times" />
-        </button>
-      </div>
+  <div class="art-img" @click="toggleModal()">
+    <v-zoomer ref="zoomer">
+      <img
+        :src="src.images[src.images.length-1].path"
+        @click.stop
+      >
+    </v-zoomer>
+    <div class="modal-controls-lg" @click.stop>
+      <button class="button button-sm" @click="$refs.zoomer.zoomIn()">
+        <i class="las la-search-plus" />
+      </button>
+      <button class="button button-sm" @click="$refs.zoomer.zoomOut()">
+        <i class="las la-search-minus" />
+      </button>
     </div>
   </div>
 </template>
@@ -61,23 +54,11 @@ export default {
     height: $art-height;
     object-fit: contain;
   }
-}
 
-.art-modal {
   .vue-zoomer {
     overflow: initial;
     align-self: center;
     justify-self: center;
-
-    img {
-      cursor: move;
-      max-height: 90vh;
-      max-width: 100vw;
-    }
-  }
-
-  &-controls-md {
-    display: none;
   }
 }
 

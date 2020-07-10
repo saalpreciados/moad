@@ -4,10 +4,10 @@
       <logo version="symbol" subtitled />
     </b-navbar-brand>
 
-    <b-navbar-toggle target="nav-collapse" />
+    <b-navbar-toggle v-if="!showModal && !showMap" target="nav-collapse" />
 
-    <div v-if="showModal" class="nav-close-modal d-none d-md-flex">
-      <div class="nav-close-modal-info">
+    <div v-if="showModal" class="nav-close-modal d-flex">
+      <div class="nav-close-modal-info d-sm-block d-none">
         <div class="nav-close-modal-info-art">
           {{ currentArt.art }}
         </div>
@@ -20,7 +20,7 @@
       </nuxt-link>
     </div>
 
-    <div v-if="showMap" class="nav-close-modal d-none d-md-flex">
+    <div v-if="showMap" class="nav-close-modal d-flex">
       <div class="nav-close-modal-info">
         <div class="nav-close-modal-info-art">
           Tancar Mapa
