@@ -40,7 +40,7 @@ export default {
   color: $body-color;
   position: relative;
 
-  &:hover {
+  &:hover, &:focus {
     text-decoration: none;
 
     .expo-link-title {
@@ -48,6 +48,17 @@ export default {
         text-decoration: none;
         padding-left: 1rem;
       }
+    }
+  }
+
+  &:focus {
+    img {
+      border: 4px solid $primary;
+      border-radius: 3px;
+    }
+
+    .expo-link-title {
+      color: $primary;
     }
   }
 

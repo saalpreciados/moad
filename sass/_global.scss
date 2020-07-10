@@ -41,10 +41,9 @@ a {
   transition: .25s ease-in-out;
   background-color: transparent;
 
-  &:focus {
+  &:hover, &:focus {
+    color: $primary;
     outline: none;
-    background-color: $gray-light;
-    border-radius: .5rem;
   }
 }
 
@@ -59,9 +58,16 @@ a.link-arrow {
     content: '→';
     padding-left: .5rem;
     transition: .25s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
   }
 
-  &:hover::after {
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:hover::after,
+  &:focus::after {
     text-decoration: none;
     color: $primary;
     padding-left: 1rem;

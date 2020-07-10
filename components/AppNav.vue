@@ -83,18 +83,17 @@ export default {
           display: none;
         }
 
-        &::after {
-          display: none;
+        &:hover, &:active, &:focus {
+          color: $primary !important;
         }
 
-        &:hover, &:active {
-          color: $primary !important;
+        &:focus {
+          text-decoration: underline !important;
         }
       }
     }
 
     .navbar-brand {
-
       svg {
         height: 24px;
         width: 7rem;
