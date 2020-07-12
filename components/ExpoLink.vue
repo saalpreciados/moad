@@ -151,4 +151,12 @@ export default {
     }
   }
 }
+
+@include media-breakpoint-down(sm) {
+    .expo {
+      &-link-title {
+        font-size: 1.75rem;
+    }
+  }
+}
 </style>

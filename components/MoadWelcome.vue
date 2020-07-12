@@ -77,6 +77,18 @@ export default {
     }
   }
 }
+
+@include media-breakpoint-down(sm) {
+  .welcome {
+    &-text {
+      font-size: 2.5rem;
+    }
+
+    .links {
+      font-size: 1.5rem;
+    }
+  }
+}
 </style>
 
 <style lang="scss" >
