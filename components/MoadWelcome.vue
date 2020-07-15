@@ -51,12 +51,12 @@ export default {
 @import '../sass/variables';
 
 .welcome {
-  margin-bottom: 3rem 0;
+  margin-bottom: 6rem;
 
   &-text {
     color: $dark;
     line-height: 1.1;
-    padding: 1.25rem 0 2rem 0;
+    padding: 4rem 0 1rem 0;
     max-width: 850px;
     margin: 0;
   }
