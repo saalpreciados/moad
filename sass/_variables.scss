@@ -35,6 +35,7 @@ $navbar-inverse-link-hover-color: $primary;
 
 // Art and slides
 $art-height: 65vh;
+$art-height-md: calc(100vh - 4.25rem - 4rem - var(--title-height));
 
 // Boostrap variables and functions
 @import "bootstrap/scss/_functions";

@@ -1,21 +1,8 @@
 <template>
-  <div class="art-3d">
-    <div class="art-modal">
-      <div class="model-wrapper-modal">
-        <model-obj
-          src="../models/test.obj"
-        />
-      </div>
-      <ul class="art-modal-controls-lg">
-        <li><i class="las la-search-plus" /> Roda del ratolí</li>
-        <li><i class="las la-undo-alt" /> Click + moure</li>
-        <li><i class="las la-arrows-alt" /> Espai + moure</li>
-      </ul>
-      <div v-if="showModal" class="art-modal-controls-md" @click.stop>
-        <button class="button" @click="toggleModal()">
-          <i class="las la-times" />
-        </button>
-      </div>
+  <div class="wrapper">
+    <div class="grid">
+      <div class="item-1" />
+      <div class="item-2" />
     </div>
   </div>
 </template>
@@ -49,57 +36,25 @@ export default {
 <style lang="scss" scoped>
 @import '../sass/variables';
 
-.art-3d {
+.wrapper {
+  height: 800px;
+  width: 300px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 300px 1fr;
+}
+
+.item-1 {
+  background: red;
   height: 100%;
-  width: 100%;
 }
 
-.model-wrapper {
-  width: 100%;
-  height: $art-height;
-  position: relative;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &-modal {
-    width: 90vw;
-    height: 90vh;
-  }
-}
-
-.loading-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: 3rem;
-  height: 3rem;
-}
-
-.art-src {
+.item-2 {
+  background: blue;
   height: 100%;
-  width: 100%;
-
-  &:hover {
-    cursor: pointer;
-  }
 }
 
-@include media-breakpoint-down(md) {
-  .art-3d {
-    .model-wrapper {
-      position: fixed;
-    }
-  }
-
-  .art-src {
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
 </style>

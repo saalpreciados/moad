@@ -1,10 +1,10 @@
 <template>
-  <div :class="{'expo-slide' : !slide.custom, 'expo-slide-custom': slide.custom, 'container' : slide.custom }">
+  <div ref="expoSlide" :class="{'expo-slide' : !slide.custom, 'expo-slide-custom': slide.custom, 'container' : slide.custom }">
     <template v-if="!slide.custom">
       <art :src="slide.src" />
       <div v-if="!showModal" class="expo-slide-info">
         <div class="expo-slide-info-main">
-          <div class="expo-slide-info-art">
+          <div ref="info" class="expo-slide-info-art">
             <div class="expo-slide-info-title">
               {{ slide.title }}
             </div>
@@ -80,6 +80,15 @@ export default {
   },
   mounted () {
     this.currentUrl = window.location.href
+    // this.setPadding()
+  },
+  methods: {
+    setPadding () {
+      const height = this.$refs.info.offsetHeight
+      this.$refs.expoSlide.style.setProperty('--title-height', height + 'px')
+      /* const programaList = document.querySelector('#programaList')
+      programaList.style.setProperty('--overflow-padding-sides', height + 'px') */
+    }
   }
 }
 </script>
@@ -119,11 +128,13 @@ export default {
     }
 
     &-title {
-      font-size: 1.75rem
+      font-size: 1.75rem;
+      line-height: 1.25;
     }
 
     &-artist {
-      font-size: 1.25rem
+      font-size: 1.25rem;
+      margin-top: .25rem;
     }
 
     &-description {
@@ -169,9 +180,10 @@ export default {
 .expo-slide {
 display: grid;
 grid-template-columns: 1fr;
+grid-template-rows: calc(100vh - 4.25rem - 4rem - var(--title-height)) 1fr;
 grid-template-areas: "art"
                     "info";
-gap: 1.5rem;
+gap: 0;
 margin: 0;
 
   &-info {
@@ -187,7 +199,10 @@ margin: 0;
       grid-template-rows: auto auto;
     }
   }
-}
 
+  &-art {
+    max-height: 100%;
+  }
+}
 }
 </style>

@@ -43,6 +43,7 @@ export default {
 
   a {
     cursor: zoom-in;
+    max-height: 100%;
   }
 
   img {
@@ -78,9 +79,11 @@ export default {
   .art-img {
     align-items: center;
     position: fixed;
+    height: $art-height-md;
 
     img {
       max-width: 100vw;
+      height: $art-height-md;
     }
 
     &:hover {
