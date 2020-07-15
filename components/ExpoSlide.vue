@@ -168,6 +168,7 @@ export default {
       flex-direction: row;
       font-size: 2.75rem;
       margin-bottom: 2rem;
+      line-height: 1.2;
 
       a {
         margin-left: 3rem;
@@ -202,6 +203,12 @@ margin: 0;
 
   &-art {
     max-height: 100%;
+  }
+
+  &-custom {
+    &-title {
+      font-size: 2.25rem;
+    }
   }
 }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="container manifesto">
-    <h1>Sobre el Museu</h1>
+    <h3>Sobre el Museu</h3>
     <p>
       El Museu Online d'Art Digital vol ser una institució lliure, oberta i gratuïta al servei d'artistes, investigadors i curadors. Busca crear un espai ideal a l'artista digital per a exposar la seua obra i una plataforma útil per a l'exposició, conservació i organització de l'art digital. De la mateixa manera, pretén obrir l'Art Digital a un públic més ampli.
     </p>
@@ -9,7 +9,7 @@
         Vols participar?
       </nuxt-link>
     </p>
-    <h1>El nostre manifest</h1>
+    <h3>El nostre manifest</h3>
     <p>
       Il·lustracions precioses perdudes a la timeline de Twitter. Animacions de 15 segons consumides a una història d’instagram. Peces interactives inaccessibles a un domini caducat.
     </p>

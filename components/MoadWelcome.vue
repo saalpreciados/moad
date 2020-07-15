@@ -86,6 +86,8 @@ export default {
 
 @include media-breakpoint-down(sm) {
   .welcome {
+    margin-bottom: 2.5rem;
+
     &-text {
       font-size: 2.5rem;
       padding: .75rem 0;

@@ -1,6 +1,6 @@
 <template>
   <div class="container participa">
-    <h1>Participa en el museu</h1>
+    <h3>Participa en el museu</h3>
     <p>
       Tot i haver nascut com a projecte individual, el Museu Online d'Art Digital vol  créixer i aconvertir-se ser una institució participativa, col·lectiva i oberta.
     </p>
