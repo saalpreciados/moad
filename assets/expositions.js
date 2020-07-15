@@ -13,11 +13,15 @@ const expositions = [
   },
   {
     title: 'Exposició en construcció',
-    img: epsg[7].src.url,
-    description: 'Esta exposició està en construcció.',
-    url: '',
-    id: '',
-    expo: epsg
+    description: 'Esta exposició està en construcció.'
+  },
+  {
+    title: 'Espai disponible',
+    description: 'La Sala 3 està disponible per a exposar. Contacta amb nosaltres si vols participar'
+  },
+  {
+    title: 'Espai disponible',
+    description: 'La Sala 4 està disponible per a exposar. Contacta amb nosaltres si vols participar'
   }
   /* {
     title: 'Aerial Trams',

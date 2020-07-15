@@ -1,7 +1,8 @@
 <template>
-  <div class="expo">
-    <nuxt-link class="expo-link container" :to="'/expositions/'+exposition.id">
-      <img :srcset="exposition.img.srcSet" alt="Untitled 1">
+  <div :class="{'expo' : true, 'expo-unavailable' : !exposition.hasOwnProperty('expo')}">
+    <nuxt-link class="expo-link container" :to="'/expositions/'+exposition.id" :event="exposition.hasOwnProperty('url') ? 'click' : ''">
+      <img v-if="exposition.hasOwnProperty('img')" :srcset="exposition.img.srcSet" alt="Untitled 1">
+      <div v-else class="no-img-placeholder" />
       <div class="expo-link-hall">
         Sala {{ number }}
       </div>
@@ -40,17 +41,6 @@ export default {
   color: $body-color;
   position: relative;
 
-  &:hover, &:focus {
-    text-decoration: none;
-
-    .expo-link-title {
-      &::after {
-        text-decoration: none;
-        padding-left: 1rem;
-      }
-    }
-  }
-
   &:focus {
     img {
       border: 4px solid $primary;
@@ -62,19 +52,40 @@ export default {
     }
   }
 
-  img {
+  img, .no-img-placeholder {
     object-fit: cover;
-    max-height: 450px;
+    height: 450px;
     width: 100%;
+  }
+
+  .no-img-placeholder {
+    background: $gray-light;
   }
 
   &-title {
     display: block;
+    transition: .25s ease-in-out;
 
     &::after {
       content: '→';
-      padding-left: .5rem;
       transition: .25s ease-in-out;
+      padding-left: .25rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+  }
+
+  &:hover, &:focus {
+    text-decoration: none;
+
+    .expo-link-title {
+      color: $primary;
+
+      &::after {
+        color: $primary;
+        text-decoration: none;
+        transform: translateX(.3rem);
+      }
     }
   }
 
@@ -115,6 +126,30 @@ export default {
   }
 }
 
+.expo-unavailable {
+  .expo-link {
+    cursor: default;
+
+    &-title {
+      color: $gray;
+    }
+
+    &:hover, &:focus {
+    text-decoration: none;
+
+    .expo-link-title {
+      color: $gray;
+
+      &::after {
+        color: $gray;
+        text-decoration: none;
+        transform: translateX(0);
+      }
+    }
+    }
+  }
+}
+
 @include media-breakpoint-down(lg) {
   .expo {
     &-number {
@@ -145,7 +180,7 @@ export default {
   }
 
   &-link {
-      img {
+      img, .no-img-placeholder {
         height: 375px;
       }
     }
