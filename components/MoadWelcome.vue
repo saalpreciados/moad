@@ -1,8 +1,9 @@
 <template>
   <div class="container welcome">
-    <div class="welcome-text">
+    <h1 class="welcome-text">
       Benvinguts al Museu Online d'Art Digital
-    </div>
+    </h1>
+    <p>Som una institució lliure, oberta i gratuïta que exposa, estudia i conserva art digital. Acabem de nàixer, estem en proves!</p>
     <div class="links">
       <a class="link-arrow" href="#expositions">
         Exposicions
@@ -13,7 +14,6 @@
       <nuxt-link class="link-arrow" to="participa">
         Participa al museu
       </nuxt-link>
-      </a>
     </div>
     <!-- <client-only>
       <Lottie
@@ -54,18 +54,24 @@ export default {
   margin-bottom: 3rem 0;
 
   &-text {
-    font-size: 6rem;
-    color: blue;
+    color: $dark;
     line-height: 1.1;
-    padding: 2rem 0;
+    padding: 1.25rem 0 2rem 0;
+    max-width: 850px;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.25rem;
+    line-height: 1.5;
   }
 
   .links {
-    font-size: 2rem;
+    font-size: 1.75rem;
 
     a {
       display: inline-block;
-      margin-right: 1.5rem;
+      margin-right: 1.25rem;
     }
   }
 }
@@ -82,10 +88,15 @@ export default {
   .welcome {
     &-text {
       font-size: 2.5rem;
+      padding: .75rem 0;
     }
 
     .links {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 1.1rem;
     }
   }
 }
