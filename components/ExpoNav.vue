@@ -4,13 +4,13 @@
     <b-tooltip target="progress-bar" triggers="hover focus" offset="10000px" custom-class="tooltip-moad">
       Obrir Mapa
     </b-tooltip>
-    <button v-if="showControls && prevSlideExists" class="expo-nav-prev button" @click="prevSlide()" @mousedown.prevent>
+    <button v-if="showControls && prevSlideExists" class="expo-nav-prev button" @click.prevent="prevSlide()" @mousedown.prevent>
       <span>←</span>
     </button>
     <nuxt-link v-if="showControls" class="expo-nav-map d-lg-none d-xl-none button-def" to="map" @mousedown.prevent>
       Mapa
     </nuxt-link>
-    <button v-if="showControls && nextSlideExists" class="expo-nav-next button" to="aerial-trams" @click="nextSlide()" @mousedown.prevent>
+    <button v-if="showControls && nextSlideExists" class="expo-nav-next button" to="aerial-trams" @click.prevent="nextSlide()" @mousedown.prevent>
       <span>→</span>
     </button>
   </div>
@@ -92,6 +92,16 @@ export default {
     position: fixed;
     font-size: 3rem;
     bottom: 45vh;
+
+    span {
+      display: block;
+    }
+
+    &:hover {
+      transition: .2s ease-in-out;
+      transform: translateX(.2rem);
+      color: $primary;
+    }
   }
 
   &-next {
@@ -99,11 +109,10 @@ export default {
 
     &:hover {
       span {
-        display: block;
-        animation-name: slide-fade-right;
+        /* animation-name: slide-fade-right;
         animation-duration: 1.25s;
         animation-iteration-count: infinite;
-        animation-fill-mode: forwards;
+        animation-fill-mode: forwards; */
       }
     }
   }
@@ -113,11 +122,10 @@ export default {
 
     &:hover {
       span {
-        display: block;
-        animation-name: slide-fade-left;
+        /* animation-name: slide-fade-left;
         animation-duration: 1.25s;
         animation-iteration-count: infinite;
-        animation-fill-mode: forwards;
+        animation-fill-mode: forwards; */
       }
     }
   }
@@ -138,6 +146,11 @@ export default {
     &-next, &-prev {
       font-size: 2.35rem;
       bottom: 10px;
+
+      &:hover {
+        transform: translateX(0);
+        color: $dark;
+      }
     }
 
     &-next {

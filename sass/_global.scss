@@ -109,11 +109,14 @@ a.link-arrow {
   font-size: 2.25rem;
   color: $dark;
 
-  &:hover, &:focus {
+  &:hover {
     outline: none;
-    background-color: $gray-light;
     border-radius: 100%;
     text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
   }
 
   &-sm {
