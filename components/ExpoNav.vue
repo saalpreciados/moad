@@ -7,7 +7,7 @@
     <button v-if="showControls && prevSlideExists" class="expo-nav-prev button" @click.prevent="prevSlide()" @mousedown.prevent>
       <span>←</span>
     </button>
-    <nuxt-link v-if="showControls" class="expo-nav-map d-lg-none d-xl-none button-def" to="map" @mousedown.prevent>
+    <nuxt-link v-if="showControls && currentSlide.number > 0" class="expo-nav-map d-lg-none d-xl-none button-def" to="map" @mousedown.prevent>
       Mapa
     </nuxt-link>
     <button v-if="showControls && nextSlideExists" class="expo-nav-next button" to="aerial-trams" @click.prevent="nextSlide()" @mousedown.prevent>
