@@ -6,16 +6,11 @@
           :src="src"
         />
       </div>
-      <ul class="art-modal-controls-lg">
+      <!-- <ul class="art-modal-controls-lg">
         <li><i class="las la-search-plus" /> Roda del ratolí</li>
         <li><i class="las la-undo-alt" /> Click + moure</li>
         <li><i class="las la-arrows-alt" /> Espai + moure</li>
-      </ul>
-      <div v-if="showModal" class="art-modal-controls-md" @click.stop>
-        <button class="button" @click="toggleModal()">
-          <i class="las la-times" />
-        </button>
-      </div>
+      </ul> -->
     </div>
   </div>
 </template>
@@ -70,8 +65,8 @@ export default {
   }
 
   &-modal {
-    width: 90vw;
-    height: 90vh;
+    width: 100%;
+    height: 100vh;
   }
 }
 

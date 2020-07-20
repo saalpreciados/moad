@@ -1,12 +1,14 @@
 <template>
   <div class="art-src">
     <img v-if="showModal == false" :srcset="src.thumbnail.srcSet" alt="Untitled 1" @click="toggleModal()">
-    <div v-if="showModal" class="art-modal" @click="toggleModal()">
-      <embed :src="src.url" class="art-html">
-      <div class="art-modal-controls-lg" @click.stop />
-      <div v-if="showModal" class="art-modal-controls-md" @click.stop>
-        <button class="button" @click="toggleModal()">
-          <i class="las la-times" />
+    <div v-if="showModal" class="art-html-modal" @click="toggleModal()">
+      <iframe ref="iframe" :src="src.url" class="art-html" />
+      <div v-if="showModal" class="art-html-controls" @click.stop>
+        <button class="button button-sm" @click="$refs.iframe.contentWindow.history.back()">
+          ←
+        </button>
+        <button class="button button-sm" @click="$refs.iframe.contentWindow.history.forward()">
+          →
         </button>
       </div>
     </div>
@@ -56,14 +58,26 @@ export default {
   }
 }
 
-.art-modal {
+.art-html-modal {
+  width: 100%;
 
   .art-html {
     overflow-y: scroll;
     align-self: center;
     justify-self: center;
-    height: 90vh;
+    height: 100vh;
     width: 100%;
+  }
+
+  .art-html-controls {
+    background: white;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 }
