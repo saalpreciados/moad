@@ -9,17 +9,30 @@
 
 <script>
 import ExpoNav from '@/components/ExpoNav'
+import expositions from '@/assets/expositions.js'
 
 export default {
   components: {
     ExpoNav
   },
-  props: {
-    expositions: {
-      type: Array,
-      default: null
+
+  asyncData ({ store, params }) {
+    const currentExpo = expositions[expositions.findIndex(expo => expo.id === params.expo)].expo
+    if (params.id) {
+      store.commit('changeCurrentSlide',
+        {
+          number: currentExpo.findIndex(slide => slide.id === params.id),
+          id: params.id
+        })
+    }
+
+    if (params.expo) {
+      store.commit('changeCurrentExpoId', params.expo)
+      const i = expositions.findIndex(expo => expo.id === params.expo)
+      store.commit('changeCurrentExpoName', expositions[i].title)
     }
   },
+
   computed: {
     currentSlide () {
       return this.$store.state.currentSlide
@@ -37,13 +50,15 @@ export default {
       return this.$store.state.showModal
     },
     currentExpo () {
-      return this.expositions[this.expositions.findIndex(expo => expo.id === this.$route.params.expo)].expo
+      return expositions[expositions.findIndex(expo => expo.id === this.$route.params.expo)].expo
     }
   },
   watch: {
+    // ho rep la nav (art i autor)
     currentSlide (newslide, oldslide) {
       this.$store.commit('changeCurrentArt', { art: this.currentExpo[this.currentSlide.number].title, author: this.currentExpo[this.currentSlide.number].author })
     },
+    // saber si hi ha modals oberts
     route: {
       handler (from, to) {
         if (from.endsWith('modal')) {
@@ -53,24 +68,6 @@ export default {
         } else {
           this.$store.commit('toggleModal', 'close')
           this.$store.commit('toggleMap', 'close')
-        }
-      },
-      immediate: true,
-      deep: true
-    },
-    routeParams: {
-      handler (from, to) {
-        if (this.$route.params.id) {
-          this.$store.commit('changeCurrentSlide',
-            {
-              number: this.currentExpo.findIndex(slide => slide.id === this.$route.params.id),
-              id: this.$route.params.id
-            })
-        }
-        if (this.$route.params.expo) {
-          this.$store.commit('changeCurrentExpoId', this.$route.params.expo)
-          const i = this.expositions.findIndex(expo => expo.id === this.$route.params.expo)
-          this.$store.commit('changeCurrentExpoName', this.expositions[i].title)
         }
       },
       immediate: true,

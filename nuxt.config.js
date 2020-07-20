@@ -1,5 +1,6 @@
 export default {
   mode: 'universal',
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -27,7 +28,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#0000ff' },
   /*
    ** Global CSS
    */
