@@ -1,28 +1,27 @@
 <template>
   <div>
-    <expo-slide :slide="expo[currentSlide.number]" />
-    <nuxt-child :src="expo[currentSlide.number].src" />
+    <expo-slide :slide="currentExpoSlide" />
+    <nuxt-child :src="currentExpoSlide.src" />
   </div>
 </template>
 
 <script>
 import ExpoSlide from '@/components/ExpoSlide'
+import expositions from '@/assets/expositions.js'
 
 export default {
   components: {
     ExpoSlide
   },
 
-  props: {
-    expo: {
-      type: Array,
-      default: null
-    }
-  },
+  asyncData ({ params, store }) {
+    if (params.expo) {
+      const expo = expositions[expositions.findIndex(expo => expo.id === params.expo)].expo
+      const slide = (!params.id) ? expo[0] : expo.find(slide => slide.id === params.id)
 
-  computed: {
-    currentSlide () {
-      return this.$store.state.currentSlide
+      return {
+        currentExpoSlide: slide
+      }
     }
   }
 }

@@ -35,11 +35,16 @@
 </template>
 
 <script>
+import expositions from '@/assets/expositions.js'
+
 export default {
-  props: {
-    expo: {
-      type: Array,
-      default: () => []
+  asyncData ({ params, store }) {
+    if (params.expo) {
+      const expo = expositions[expositions.findIndex(expo => expo.id === params.expo)].expo
+
+      return {
+        expo
+      }
     }
   },
   computed: {

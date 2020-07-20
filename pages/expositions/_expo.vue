@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="expo-wrapper">
-      <nuxt-child :expo="currentExpo" />
+      <nuxt-child />
     </div>
     <expo-nav v-if="!showMap && !showModal" :expo="currentExpo" />
   </div>
@@ -17,18 +17,19 @@ export default {
   },
 
   asyncData ({ store, params }) {
-    const currentExpo = expositions[expositions.findIndex(expo => expo.id === params.expo)].expo
     if (params.id) {
+      const currentExpo = expositions[expositions.findIndex(expo => expo.id === params.expo)].expo
       store.commit('changeCurrentSlide',
         {
           number: currentExpo.findIndex(slide => slide.id === params.id),
           id: params.id
-        })
+        }
+      )
     }
 
     if (params.expo) {
       store.commit('changeCurrentExpoId', params.expo)
-      const i = expositions.findIndex(expo => expo.id === params.expo)
+      const i = (params.id) ? expositions.findIndex(expo => expo.id === params.expo) : 0
       store.commit('changeCurrentExpoName', expositions[i].title)
     }
   },
@@ -68,6 +69,28 @@ export default {
         } else {
           this.$store.commit('toggleModal', 'close')
           this.$store.commit('toggleMap', 'close')
+        }
+      },
+      immediate: true,
+      deep: true
+    },
+
+    routeParams: {
+      handler (from, to) {
+        const { params } = this.$route
+        const currentExpo = expositions[expositions.findIndex(expo => expo.id === params.expo)].expo
+        if (params.id) {
+          this.$store.commit('changeCurrentSlide',
+            {
+              number: currentExpo.findIndex(slide => slide.id === params.id),
+              id: params.id
+            })
+        }
+
+        if (params.expo) {
+          this.$store.commit('changeCurrentExpoId', params.expo)
+          const i = expositions.findIndex(expo => expo.id === params.expo)
+          this.$store.commit('changeCurrentExpoName', expositions[i].title)
         }
       },
       immediate: true,

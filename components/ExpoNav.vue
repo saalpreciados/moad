@@ -51,9 +51,7 @@ export default {
   methods: {
     nextSlide () {
       if (this.nextSlideExists) {
-        console.log('I exist')
         if (this.$route.params.id) {
-          console.log('I have a param ID', this.expo[this.currentSlide.number + 1].id)
           this.$router.push(this.expo[this.currentSlide.number + 1].id)
         } else {
           this.$router.push({ path: `${this.expo[this.currentSlide.number + 1].id}`, append: true })
