@@ -1,5 +1,4 @@
 import epsg from './expositions/epsg.js'
-import tests from './expositions/tests.js'
 
 const expositions = [
   {
