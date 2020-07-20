@@ -1,6 +1,5 @@
 import epsg from './expositions/epsg.js'
-// import expo1 from './expositions/expo1.js'
-// import expo2 from './expositions/expo2.js'
+import tests from './expositions/tests.js'
 
 const expositions = [
   {
@@ -23,22 +22,6 @@ const expositions = [
     title: 'Espai disponible',
     description: 'La Sala 4 està disponible per a exposar. Contacta amb nosaltres si vols participar'
   }
-  /* {
-    title: 'Aerial Trams',
-    img: expo1[0].src.url,
-    description: 'Elvin Aliyev',
-    url: 'expo',
-    id: 'expo1',
-    expo: expo1
-  },
-  {
-    title: 'Untitled 1',
-    img:  expo2[0].src.url,
-    description: 'Motocross Saito',
-    url: '',
-    id: 'expo2',
-    expo: expo2
-  } */
 ]
 
 export default expositions

@@ -12,19 +12,17 @@ const epsg = [
     custom: true
   },
   {
-    id: 'creyendo',
-    title: 'Creyendo estar contigo',
+    id: 'mariposas',
+    title: 'Mariposas en la cabeza de marcos',
     src: {
       type: 'img',
-      url: creyendo,
-      thumbnail: creyendo
+      url: mariposas,
+      thumbnail: mariposas
     },
-    author: 'Sofía Añón Picó',
-    technique: 'Il·lustració Vectorial',
-    description: 'Creyendo estar contigo és un cartell per a la pel·lícula In the Mood For Love.',
-    artistnotes: '“Juego conmigo a ser feliz creyendo estar contigo. Después de todo este tiempo me deberías resultar extraña, pero, en realidad, me duele sentirte lejos.” Rodeados de un ambiente cargado y asfixiante, los protagonistas desean estar juntos, se quieren, se anhelan, se sienten cerca, casi incluso rozándose; pero a su vez, una invisible distancia los separa, se sienten lejos, perdidos, solos, cada uno mirando a su lado, haciendo imposible que estén juntos.',
-    instagram: 'morkebla_',
-    twitter: 'morkebla'
+    author: 'Julia Carrión',
+    technique: 'Collage digital, muntatge fotogràfic',
+    artistnotes: 'Realicé esta obra durante el periodo de confinamiento, dónde estaba 24h con mi hermano Marcos entre 4 paredes. Lo observé todos los días y de aquí nació la idea de este collage. Han pasado muchos años, pero sigue con mariposas en la cabeza. ',
+    instagram: 'elprimeroqueabra'
   },
   {
     id: 'loose',
@@ -40,17 +38,19 @@ const epsg = [
     instagram: 'edumateos19'
   },
   {
-    id: 'mariposas',
-    title: 'Mariposas en la cabeza de marcos',
+    id: 'creyendo',
+    title: 'Creyendo estar contigo',
     src: {
       type: 'img',
-      url: mariposas,
-      thumbnail: mariposas
+      url: creyendo,
+      thumbnail: creyendo
     },
-    author: 'Julia Carrión',
-    technique: 'Collage digital, muntatge fotogràfic',
-    artistnotes: 'Realicé esta obra durante el periodo de confinamiento, dónde estaba 24h con mi hermano Marcos entre 4 paredes. Lo observé todos los días y de aquí nació la idea de este collage. Han pasado muchos años, pero sigue con mariposas en la cabeza. ',
-    instagram: 'elprimeroqueabra'
+    author: 'Sofía Añón Picó',
+    technique: 'Il·lustració Vectorial',
+    description: 'Creyendo estar contigo és un cartell per a la pel·lícula In the Mood For Love.',
+    artistnotes: '“Juego conmigo a ser feliz creyendo estar contigo. Después de todo este tiempo me deberías resultar extraña, pero, en realidad, me duele sentirte lejos.” Rodeados de un ambiente cargado y asfixiante, los protagonistas desean estar juntos, se quieren, se anhelan, se sienten cerca, casi incluso rozándose; pero a su vez, una invisible distancia los separa, se sienten lejos, perdidos, solos, cada uno mirando a su lado, haciendo imposible que estén juntos.',
+    instagram: 'morkebla_',
+    twitter: 'morkebla'
   },
   {
     id: 'raices',
