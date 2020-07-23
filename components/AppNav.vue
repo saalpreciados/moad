@@ -15,23 +15,21 @@
           {{ currentArt.author }}
         </div>
       </div>
-      <nuxt-link class="button button-sm" :to="{ path: $store.state.route.from.fullPath }">
-        <i class="las la-times" />
-      </nuxt-link>
     </div>
 
     <div v-if="showMap" class="nav-close-modal d-flex">
       <div class="nav-close-modal-info">
-        <div class="nav-close-modal-info-art">
-          Tancar Mapa
-        </div>
+        <nuxt-link class="nav-close-modal-info-art link-dark" :to="{ path: $store.state.route.from.fullPath }">
+          <span>Tancar Mapa</span> <i class="las la-times" />
+        </nuxt-link>
       </div>
-      <nuxt-link class="button button-sm" :to="{ path: $store.state.route.from.fullPath }">
-        <i class="las la-times" />
-      </nuxt-link>
     </div>
 
-    <b-collapse v-if="!showModal && !showMap" id="nav-collapse" is-nav>
+    <nuxt-link v-else-if="currentSlide.number > 0" class="expo-nav-map d-none d-lg-block button-def ml-auto mr-2" to="map" @mousedown.prevent>
+      Mapa
+    </nuxt-link>
+
+    <b-collapse v-if="!showModal && !showMap && !this.$route.params.expo" id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item to="/expositions" @mousedown.prevent>
           Exposició
@@ -63,6 +61,9 @@ export default {
     },
     currentArt () {
       return this.$store.state.currentArt
+    },
+    currentSlide () {
+      return this.$store.state.currentSlide
     }
   }
 }
@@ -119,8 +120,17 @@ export default {
 
     &-info {
       text-align: right;
-      margin-right: 1rem;
       line-height: 1.4;
+
+      &-art {
+        display: flex;
+        align-items: center;
+      }
+
+      i {
+        font-size: 1.7rem;
+        margin-left: .5rem;
+      }
 
       &-author {
         font-size: 0.8rem;

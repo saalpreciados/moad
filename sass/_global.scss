@@ -63,6 +63,15 @@ a .lab {
   color: $dark;
 }
 
+a.link-dark {
+  color: $dark;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 a.link-arrow {
   display: block;
 
