@@ -1,3 +1,5 @@
+import expositions from '@/assets/expositions.js'
+
 export const state = () => ({
   showModal: false,
   showMap: false,
@@ -7,7 +9,8 @@ export const state = () => ({
   },
   currentExpoId: '',
   currentExpoName: '',
-  currentArt: {}
+  currentArt: {},
+  expositions
 })
 
 export const mutations = {
@@ -52,5 +55,11 @@ export const mutations = {
 
   changeCurrentArt (state, art) {
     state.currentArt = art
+  }
+}
+
+export const getters = {
+  currentExpo: (state, params) => {
+    return state.expositions[expositions.findIndex(expo => expo.id === params.expo)].expo
   }
 }

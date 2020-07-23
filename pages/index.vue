@@ -41,19 +41,3 @@ export default {
   layout: 'default-footer'
 }
 </script>
-
-<style lang="scss">
-.index-enter-active, .index-leave-active {
-  transition: .5s ease-out;
-}
-
-.index-enter {
-  opacity: 0;
-  transform: scale(1.1);
-}
-
-.index-leave-to {
-  opacity: 0;
-  transform: scale(0.9);
-}
-</style>

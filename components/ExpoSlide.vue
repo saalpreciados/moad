@@ -45,7 +45,17 @@
     <template v-if="slide.custom">
       <div class="expo-slide-custom-title">
         <span>{{ slide.title }}</span>
-        <a v-clipboard:copy="currentUrl"><i class="las la-link" /></a>
+        <div class="expo-slide-info-share expo-slide-custom-share" @mouseleave="linkCopied = false">
+          <a id="copy-url" v-clipboard:copy="currentUrl" no-fade="true" @click="linkCopied = true"><i class="las la-link" /></a>
+          <b-tooltip
+            target="copy-url"
+            triggers="hover focus"
+            custom-class="tooltip-moad"
+            placement="bottom"
+          >
+            <span v-if="!linkCopied">Copiar enllaç a l'obra</span><span v-else>Enllaç Copiat</span>
+          </b-tooltip>
+        </div>
       </div>
       <p class="expo-slide-custom-info">
         {{ slide.description }}
@@ -173,6 +183,14 @@ export default {
       a {
         margin-left: 3rem;
       }
+    }
+
+    &-share {
+      cursor: pointer;
+      font-size: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

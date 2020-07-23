@@ -59,6 +59,10 @@ export default {
     goToSlide (i) {
       this.$router.push(`${this.expo[i].id}`)
     }
+  },
+  transition: {
+    name: 'index',
+    mode: 'out-in'
   }
 }
 </script>

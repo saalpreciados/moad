@@ -6,7 +6,7 @@
       </div>
       <div class="footer-info">
         <div>El Museu Online d'Art Digital és el TFG de Carles Ibáñez</div>
-        <a href="imcarl.es">imcarl.es</a>
+        <a href="https://imcarl.es">imcarl.es</a>
       </div>
     </div>
   </div>

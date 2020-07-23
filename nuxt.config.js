@@ -67,7 +67,8 @@ export default {
   responsiveLoader: {
     name: 'img/[hash:7]-[width].[ext]',
     sizes: [640, 800, 1080, 5000],
-    placeholder: true
+    placeholder: true,
+    quality: 85
   },
   /*
    ** Build configuration

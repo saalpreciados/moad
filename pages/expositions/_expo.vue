@@ -96,10 +96,6 @@ export default {
       immediate: true,
       deep: true
     }
-  },
-  transition: {
-    name: 'expo',
-    mode: 'out-in'
   }
 }
 </script>
