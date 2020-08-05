@@ -15,6 +15,9 @@
           {{ currentArt.author }}
         </div>
       </div>
+      <nuxt-link class="ml-2 button button-sm" :to="{ path: $store.state.route.from.fullPath }">
+        <i class="las la-times" />
+      </nuxt-link>
     </div>
 
     <div v-if="showMap" class="nav-close-modal d-flex">
@@ -25,7 +28,7 @@
       </div>
     </div>
 
-    <nuxt-link v-else-if="currentSlide.number > 0" class="expo-nav-map d-none d-lg-block button-def ml-auto mr-2" to="map" @mousedown.prevent>
+    <nuxt-link v-else-if="!showModal && currentSlide.number > 0" class="expo-nav-map d-none d-lg-block button-def ml-auto mr-2" to="map" @mousedown.prevent>
       Mapa
     </nuxt-link>
 
